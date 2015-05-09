@@ -8,7 +8,7 @@ var g = (function(window){
     var host = window.location.protocol+'//'+window.location.host;
     var path = '/data/gallery/mobiledoc/';
 
-    if(host.indexOf('loadjs') > -1){
+    if(host.indexOf('github.io') > -1){
         path = '/mobiledoc/';
     }
     var root_path = host+ path;
