@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+
+    //会生成sofa-config.properties
+
+    abtest.template  = ${uemprod.root}/uiweb/abtest/templates
+
+    acctrans.service.url  = http://acctrans.${inner.domain}:8080
+
+    acctransquery.service.url  = http://acctransquery.${inner.domain}:8080
+
+    alipay.url  = http://www.stable.alipay.net
+
+    apimg.url  = https://i.alipayobjects.com
+
+    appstore.service.url  = http://appstore.${inner.domain}:8080
+
+    appstore.url  = http://appstore.${inner.domain}
+
+    assets.url  = http://assets.d2834aqcn.alipay.net
+
+    authcenter.url  = http://authcenter.${inner.domain}
+
+    barcodeprod.tr.service.url  = barcodeprod.${inner.domain}:12200
+
+    biscenter.tr.service.url  = biscenter.${inner.domain}:12200
+
+    bizfundprod.url  = http://bizfundprod.stable.alipay.net
+
+    caprod.service.url  = http://caprod.${inner.domain}:8080
+
+    certify.url  = http://certify.${inner.domain}
+
+    cif.biz.platform.switchlist  = uniquery|bankcard|masterdata
+
+    cif.service.url  = http://cif.${inner.domain}:8080
+
+    cms.root.2  = /home/admin/sharedata/ecmng_publish
+
+    core.esb.h2.db.home  = /home/admin/sharedata/esbdata
+    core.esb.tcpm.port   = 6200
+
+    couriercore.url  = http://couriercore.${inner.domain}
+
+    dbmode  = @dbmode@
+
+    emembercenter.tile.url  = http://emembercenter.${inner.domain}
+
+    emembercenter.url  = http://emembercenter.d2834aqcn.alipay.net
+
+    enterprisecif.tr.service.url  = enterprisecif.stable.alipay.net:12200
+
+    enterpriseportal.url  = http://enterpriseportal.${inner.domain}
+
+    epsecuritycenter.url  = http://epsecuritycenter.stable.alipay.net
+
+    faq.root  = /home/admin/sharedata/faqroot
+
+    financeprod.service.url  = http://financeprod.${inner.domain}:8080
+
+    financeprod.url  = http://financeprod.stable.alipay.net
+
+    imageServer.host  = img.alipay.net
+    imageServer.port  = 80
+
+    inner.domain  = @inner.domain@
+
+    masterdata.service.url  = http://masterdata.${inner.domain}:8080
+
+    mbillexprod.url  = http://mbillexprod.${inner.domain}
+
+    membercenter.url  = http://membercenter.${inner.domain}
+
+    memberprod.url  = http://memberprod.${inner.domain}
+
+    merchant.service.url  = http://merchant.${inner.domain}:8080
+
+    merchantprod.url  = http://merchantprod.${inner.domain}
+
+    morderprod.url  = http://morderprod.${inner.domain}
+
+    mquery.service.url  = http://mquery.${inner.domain}
+
+    paycore.service.url  = http://paycore.${inner.domain}:8080
+
+    personal.url  = http://personal.${inner.domain}
+
+    prod.ui.template  = ${uemprod.root}/build/htdocs/uisvr
+
+    run.mode  = TEST
+
+    salesmng.service.url  = http://salesmng.${inner.domain}:8080
+
+    securitycenter.url  = http://securitycenter.${inner.domain}
+
+    securitycore.service.url  = http://securitycore.${inner.domain}:8080
+
+    securitycore.template.root.path  = /home/admin/uiweb/cms/securitycore
+
+    session.access.rule  = remote
+
+    session.cookieName      = ALIPAYJSESSIONID
+    session.globalStrategy  = cover
+
+    settlecore.service.url  = http://settlecore.${inner.domain}:8080
+
+    tair.uemprod.groupname  = public
+    tair.uemprod.namespace  = 87
+
+    tradeeportlet.url  = http://tradeeportlet.jj001.alipay.net
+
+    uemprod.admin.ukey  = false
+
+    uemprod.app.port  = 7001
+
+    uemprod.appName     = uemprod
+    uemprod.data        = ${uemprod.output}/sharedata
+    uemprod.domainName  = uemprod.d2834aqcn.alipay.net
+    uemprod.host        = localhost
+
+    uemprod.inbound.timer.threshold  = 300
+
+    uemprod.loggingLevel  = info
+
+    uemprod.loggingLevel.info  = info
+
+    uemprod.loggingRoot  = ${uemprod.output}/logs
+    uemprod.output       = ${uemprod.root}
+            uemprod.port         = 8080
+    uemprod.protocol     = http
+    uemprod.root         = /home/admin
+    uemprod.run          = ${uemprod.root}/uemprod-run
+
+    uemprod.session.domain               = alipay.net
+    uemprod.session.impl                 = com.alipay.common.webx.session.request.internal.DefaultSessionImpl
+    uemprod.session.maxInactiveInterval  = 600
+    uemprod.session.sysName              = uemprod
+
+    uemprod.tairsession.configServerList.master  = tair.stable.alipay.net:5198
+    uemprod.tairsession.configServerList.slave  = tair2.stable.alipay.net:5198
+    uemprod.tairsession.groupName  = sessiontair
+    uemprod.tairsession.namespace  = 1
+
+    uemprod.templates  = ${uemprod.root}/build/htdocs/templates
+    uemprod.url        = http://uemprod.d2834aqcn.alipay.net
+
+    uemprod.web.port  = 80
+
+    ui.tpl  = ${uemprod.root}/uiweb/uitpl
+
+    uniquery.cif.tr.service.url  = cif.${inner.domain}:12200
+
+    userview.tr.service.url  = userview.${inner.domain}:12200
+
+    wd_publishtask_branch  = ali01281420
+
+    zdataconsole.service.url  = http://zdataconsole.${inner.domain}:8080
+
+    zdrmdata.rest.url  = http://zdrmdata.stable.alipay.net
+
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'antx-properties',
+            html:$('#test1').html(),
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

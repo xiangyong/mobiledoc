@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/html" id='test1'>
+
+    H5 input 类型：
+    email
+    url
+    number
+    range
+    Date pickers (date, month, week, time, datetime, datetime-local)
+    search
+    color
+    支持情况很差，几乎只有chrome支持,不支持时候回退到type=text
+
+    <form>
+        <input type="text" placeholder="placeholder"/>
+
+        <input type="text" placeholder="required" required aria-required="true"/>
+        <!--wai-aria技术-->
+        <input type="text" readonly  value="readonly"/>
+        <input type="text" disabled value="disabled" />
+
+        <input type="text" autofocus placeholder="autofocus"/>
+
+        <input type="text" autocomplete="on" placeholder="autocomplete" list="namelist"/>
+
+
+        <!--以下的智能打开相应键盘-->
+
+        <input type="email" placeholder="email" />
+        <input type="number" placeholder="number" />
+        <!--自动校验为数字，chrome下有自动上下箭头-->
+
+        <input type="url" placeholder="url" />
+        <!--自动校验-->
+
+        <input type="tel" placeholder="tel" />
+        <!--没有自动校验-->
+
+        <input type="search" placeholder="search" />
+        <!--右边有x重置文本-->
+
+        <input type="pattern" placeholder="pattern" pattern="\d{8}" />
+        <!-- pattern="\d{8}" -->
+
+        <input type="color" placeholder="color" />
+        <!--document.querySelector('[type=color]').value-->
+
+        <input type="date" placeholder="date" />
+        <input type="month" placeholder="month" />
+        <input type="week" placeholder="week" />
+        <input type="time" placeholder="time" />
+        <input type="datetime" placeholder="datetime" />
+        <input type="date-local" placeholder="date-local" />
+
+
+        <input type="range" placeholder="range" />
+
+        <input type="submit" value="submit" />
+    </form>
+
+    <datalist id="namelist">
+        <select>
+            <option value="aaa"></option>
+            <option value="bbb"></option>
+            <option value="abc"></option>
+        </select>
+    </datalist>
+
+
+
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'test1',
+            html:$('#test1').html(),
+            demoPage:'demo/demo-baseform.html'
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

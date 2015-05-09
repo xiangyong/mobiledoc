@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+
+    window.btoa
+    pic => base64
+
+    function getBase64Image(img) {
+        var canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        var dataURL = canvas.toDataURL("image/png");
+        return dataURL;
+//        return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+    }
+
+    Google Chrome Frame
+    rem vs em
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'test1',
+            html:$('#test1').html(),
+            demoPage:'demo1.html'
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

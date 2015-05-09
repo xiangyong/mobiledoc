@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/html" id='test1'>
+
+    对 Web 邮箱、SNS 等网站来说，让用户及时知道有新消息很重要。
+    很多网站会定时获取消息数，有新信息时在页面标题加上消息数，这样即使用户在浏览其它 Tab 时也可以看到提醒，
+    这种弱提醒会给用户带来良好的产品体验。iOS 上，这种做法由于定时器被冻结而变得行不通了。
+
+「PC 上的 Firefox、Chrome 和 Safari 等浏览器，都会自动把未激活页面中的 JavaScript 定时器（setTimeout、setInterval）
+间隔最小值改为 1 秒以上；而移动设备上的浏览器往往会直接冻结未激活页面上的所有定时器」
+    chrome下不会冻结
+    解决solution：
+    1、<meta http-equiv="refresh" content="600">
+    2、我们可以在页面引入 iframe，每次只刷新 iframe。
+    3、重设 meta.content = meta.content;
+    4、postMessage,dataURI
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'test1',
+            html:$('#test1').html(),
+            demoPage:'demo1.html'
+        },
+        {
+            name:'移动端后台计数器会被冻结',
+            demoPage:'demo-timer-frozen.html'
+        },
+        {
+            name:'利用meta',
+            demoPage:'demo-meta-refresh.html'
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

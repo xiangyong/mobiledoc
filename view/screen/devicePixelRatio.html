@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/html" id='test1'>
+
+    小小结论
+    devicePixelRatio在大多数浏览器是值得信赖的。
+    在iOS设备，screen.width乘以devicePixelRatio得到的是物理像素值。
+    在Android以及Windows Phone设备，screen.width除以devicePixelRatio得到的是设备独立像素(dips)值。
+    注：本文的DIPs切勿和DPI搞混了！DPI指每英寸点的个数，本文的DIPs指设备独立像素。
+
+
+    devicePixelRatio其实指的是window.devicePixelRatio, 被所有WebKit浏览器以及Opera所支持
+    window.devicePixelRatio是设备上物理像素和设备独立像素(device-independent pixels (dips))的比例。
+
+    公式表示就是：window.devicePixelRatio = 物理像素 / dips（独立像素）
+    1 CSS pixels = （devicePixelRatio）^2 device pixels
+
+    这样，非视网膜屏幕的iphone上，屏幕物理像素320像素，独立像素也是320像素，因此，window.devicePixelRatio等于1.
+    而对于视网膜屏幕的iphone，如iphone4s, 纵向显示的时候，屏幕物理像素640像素。同样，当用户设置
+    <meta name="viewport" content="width=device-width">的时候，
+    其视区宽度并不是640像素，而是320像素，这是为了有更好的阅读体验 – 更合适的文字大小。
+    这样，在视网膜屏幕的iphone上，屏幕物理像素640像素，独立像素还是320像素，因此，window.devicePixelRatio等于2.
+
+    http://www.zhangxinxu.com/wordpress/2012/08/window-devicepixelratio/
+    http://www.qianduan.net/mobile-webapp-develop-essential-knowledge.html
+
+    如果我们按照320px宽的设计稿去制作页面，并且不做任何的设置，页面会默认自动缩放到跟手机屏幕相等的宽度
+    （这是由于 medium-dpi是target-densitydpi的默认值，和不同密度对应不同缩放比例所决定的，这一切都是移动设备自动完成的 ）。
+    所以这种解决方案，简单，粗暴，有效。但有一个致命的缺点，对于高密度和超高密度的手机设备，页面（特别是图片）会失真，而且密度越多，失真越厉害。
+
+    px像素相关：http://hax.iteye.com/blog/374323
+    我们通常所说的显示器分辨率，其实是指桌面设定的分辨率，而不是显示器的物理分辨率。
+    一般来说，px就是对应设备的物理像素
+
+    在没有viewport设置的情况下，我们很容易可以拿到布局窗口的值：
+    console.log(document.documentElement.clientWidth);
+    console.log(document.documentElement.clientHeight);
+
+    可以通过screen.width/screen.height来查看设备的分辨率。 苹果4s是320x480
+    截图是640x960
+
+    width=device-width:布局窗口=设备宽度；最开始我以为device-width就是设备的某个值，测试后发现，同一个设备不同的浏览器这个值竟然不同。
+
+    屏幕尺寸就是指屏幕的物理尺寸，一般都是以英寸为单位,注意英寸和寸的区别：1英寸=0.762寸。
+    一英寸 = 2.54 厘米
+
+    在android系统中单位DP也就是DIP
+
+    Viewport Sizes: http://i-skool.co.uk/mobile-development/web-design-for-mobiles-and-tablets-viewport-sizes/
+
+    CSS pixels： 浏览器使用的抽象单位， 主要用来在网页上绘制内容。
+    device pixels： 显示屏幕的的最小物理单位，每个dp包含自己的颜色、亮度。
+
+    PPI，有时也叫DPI，所表示的是每英寸所拥有的像素（pixel）数目，
+    数值越高，即代表显示屏能够以越高的密度显示图像。（注：这里的像素，指的是device pixels。）
+
+    DPI（dots per inch）是一个专属于打印机的墨点级分辨率单位，其意指每英寸所打印的墨点的数目。
+
+    屏幕分辨率(resolution) : 屏幕上显示的物理像素总和, 如 320 * 480;
+    --注意 : 分辨率不等于屏幕宽高比, 在Android程序中尽量避免直接使用px;
+
+    比如iphone4s :640x960px  3.5寸， 3：2,   2.54x3.5 = 8.89cm ，是对角线
+
+
+    ppi(dpi) = 根号(960^2 + 640^2) / 3.5 = 330;
+    160
+    hdpi: 根号(800^2 + 480^2) / 3.8 = 240;
+
+    ldpi,mdpi,hdpi,xhdpi
+
+
+    iphone4s 的屏幕分辨率为：960x640，但是设置的是480x320(screen.height, screen.width)
+
+    像素(px) : 实际的分辨率, 例如在 320 * 480分辨率手机上, 320 和 480 就是像素点;
+
+    Window.innerWidth这里代表的视窗宽度，Screen.width 代表的屏幕分辨率。
+
+    有两个比较麻烦的东西：媒体查询的"device-width"和html标签中的"<meta name="viewport" width="device-width" / >"。
+    这两个都与设备像素有关系的，但与css像素没关系，因为他们都是根据页面展现出的内容来定义的，而不是内部是什么css决定的。
+
+
+
+
+    -webkit-min-device-pixel-ratio为1.0
+    所有非Retina的Mac
+    所有非Retina的iOS设备
+    Acer Iconia A500
+    Samsung Galaxy Tab 10.1
+    Samsung Galaxy S
+
+    -webkit-min-device-pixel-ratio为1.3
+    Google Nexus 7
+
+    -webkit-min-device-pixel-ratio为1.5
+    Google Nexus S
+    Samsung Galaxy S II
+    HTC Desire
+    HTC Desire HD
+    HTC Incredible S
+    HTC Velocity
+    HTC Sensation
+
+    -webkit-min-device-pixel-ratio为2.0
+    iPhone 4
+    iPhone 4S
+    iPhone 5
+    iPad (3rd generation)
+    iPad 4
+    所有Retina displays 的MAC
+    Google Galaxy Nexus
+    Google Nexus 4
+    Google Nexus 10
+    Samsung Galaxy S III
+    Samsung Galaxy Note II
+    Sony Xperia S
+    HTC One X
+
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'devicePixelRatio_viewport',
+            demoPage:'demo/devicePixelRatio.html'
+        },
+        {
+            name:'测试480x320图片',
+            demoPage:'demo/demo-480x320.html'
+        },
+        {
+            name:'测试480x320图片width density',
+            demoPage:'demo/demo-480x320-density.html'
+        },
+        {
+            name:'测试480x320图片width density low',
+            demoPage:'demo/demo-480x320-density-low.html'
+        },
+        {
+            name:'测试480x320图片width viewport',
+            demoPage:'demo/demo-480x320-viewport.html'
+        },
+        {
+            name:'测试960x640图片',
+            demoPage:'demo/demo-960x640.html'
+        },
+        {
+            name:'测试960x640图片width viewport',
+            demoPage:'demo/demo-960x640-viewport.html'
+        },
+        {
+            name:'打印devicePixelRatio等一系列参数',
+            demoPage:'demo/demo-devicePixelRatio.html'
+        },
+        {
+            name:'body width:320px',
+            demoPage:'demo/demo-body320.html'
+        },
+        {
+            name:'demo-body320-viewport',
+            demoPage:'demo/demo-body320-viewport.html'
+        },
+        {
+            name:'body width:640px',
+            demoPage:'demo/demo-body640.html'
+        },
+        {
+            name:'demo-body640-viewport.html',
+            demoPage:'demo/demo-body640-viewport.html'
+        },
+
+    ]);
+
+</script>
+
+</body>
+</html>

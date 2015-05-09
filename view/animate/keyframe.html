@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+
+<script type="text/html" id='test1'>
+
+    animation-name	规定需要绑定到选择器的 keyframe 名称。。
+    animation-duration	规定完成动画所花费的时间，以秒或毫秒计。
+    animation-timing-function	规定动画的速度曲线。
+    animation-delay	规定在动画开始之前的延迟。
+    animation-iteration-count	规定动画应该播放的次数。
+    animation-direction	规定是否应该轮流反向播放动画。
+    animation-play-state
+
+
+    animation: name duration timing-function delay iteration-count direction;
+
+    animation-play-state:running | paused
+    animation-duration: 1s | 1ms
+    animation-iteration-count: 3 | infinite
+    animation-direction:normal | reverse | alternate | alternate-reverse; https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction
+    ；另一个值是alternate，他的作用是，动画播放在第偶数次向前播放，第奇数次向反方向播放。
+
+    animation-fill-mode : none | forwards | backwards | both;
+    forwards：结束后保持动画结束时的状态，但当animation-direction为0，则动画不执行，持续保持动画开始时的状态
+    backwards：结束后返回动画开始时的状态
+    both：结束后可遵循forwards和backwards两个规则。
+
+    animation-timing-function:
+    ease：缓解效果，等同于cubic-bezier(0.25,0.1,0.25,1.0)函数，既立方贝塞尔。
+    linear：线性效果，等同于cubic-bezier(0.0,0.0,1.0,1.0)函数。
+    ease-in：渐显效果，等同于cubic-bezier(0.42,0,1.0,1.0)函数。
+    ease-out：渐隐效果，等同于cubic-bezier(0,0,0.58,1.0)函数。
+    ease-in-out：渐显渐隐效果，等同于cubic-bezier(0.42,0,0.58,1.0)函数。
+    step-start：马上转跳到动画结束状态。
+    step-end：保持动画开始状态，直到动画执行时间结束，马上转跳到动画结束状态。
+    steps(<number>[, [ start | end ] ]?)：第一个参数number为指定的间隔数，即把动画分为n步阶段性展示，第二个参数默认为end，设置最后一步的状态，
+        start为结束时的状态，end为开始时的状态，若设置与animation-fill-mode的效果冲突，而以animation-fill-mode的设置为动画结束的状态。
+        cubic-bezier(<number>, <number>, <number>, <number>)：特殊的立方贝塞尔曲线效果。
+
+    animation-timing-function: linear
+    animation-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1)
+    animation-timing-function: step-start
+    animation-timing-function: step-end
+    animation-timing-function: steps(4, end)
+
+
+
+    perspective属性有两种书写形式，一种用在舞台元素上（动画元素们的共同父辈元素）；第二种就是用在当前动画元素上，与transform的其他属性写在一起。如下代码示例：
+
+    .stage {
+        perspective: 600px;
+    }
+    以及：
+    #stage .box {
+        transform: perspective(600px) rotateY(45deg);
+    }
+
+</script>
+<script type="text/html" id='test2'>
+    0%-10%      :动作停留
+    10%-90%     :动作过渡
+    90%-100%    :动作停留
+
+
+    总帧数：100
+    动作数：n
+    动作停留帧数：x
+    一般来说n=x
+    动作过渡帧数：y
+
+    1、单循环
+    nx + (n-1)y = 100;
+    n=3;x=20;y=20;
+
+    2、双向循环
+    animation-direction: alternate;
+    减去头尾的1/2
+    (n-1)x + (n-1)y = 100
+    => (n-1)(x+y) = 100
+    n=3;x=30,y=20;
+
+    3、单向模拟双向循环
+    动作个数为：2n - 2
+    ( (n-1) + 1 + (n-1-1) )*x + ( (n-1) + 1 + (n-1-1) )*y = 100
+    => (2n-2)(x+y) = 100;
+    n=3;x=15;y=10; 动作个数为:2n-2 = 4;
+
+
+    s:总帧数
+    t:播放时间
+    v:播放速度
+
+    v = s / t;
+    v:每秒钟执行多少帧
+
+    示例要求：实现一个3个动作的单向循环动画，播放时间2秒，每个动作的过渡时间为0.4秒
+
+    v = 100 / 2 = 50 帧/秒
+
+    过渡帧数：50 * 0.4 = 20帧
+
+    公式：nx + (n-1)y = 100;
+    动作数：3
+    过渡帧数y：20
+    停留帧数 计算得出： x = 20帧
+    得出
+    @keyframes animxxx{
+        0%,20%{action1}
+        40%,60%{action2}
+        80%,100%{action3}
+    }
+    http://tid.tenpay.com/labs/css3_keyframes_calculator.html
+</script>
+
+<script>
+    Demo.writeExample([
+        {
+            name:'常用属性',
+            html:$('#test1').html(),
+        },
+        {
+            name:'keyframe公式',
+            html:$('#test2').html(),
+            demoPage:'demo/demo-keyframe.html'
+        },
+        {
+            name:'demo-block.html',
+            demoPage:'demo/demo-block.html'
+        },
+        {
+            name:'财付通饭卡充值动画',
+            demoPage:'css3demo/fanka_chongzhi/chongzhi.html'
+        },
+        {
+            name:'跑步',
+            demoPage:'css3demo/run/'
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

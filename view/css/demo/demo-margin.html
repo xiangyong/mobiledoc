@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title></title>
+	<link type="text/css" rel="stylesheet" href="./quick-layout.css"/>
+</head>
+<body class="m0" style="letter-spacing:0;">
+<div class="h50 bdc mb20 rel pct50"></div>
+<div class="h50 bdc mt20 mb20 rel pct50"></div>
+<p>inline-block 中间有空白,可以通过父容器font-size:0解决</p>
+<p>letter-spacing水平文字间距</p>
+<div class="w50 bdc dib h50"></div>
+<div class="w50 bdc dib h50" style="zoom:2"></div>
+
+<div class="w50 bdc h50">block</div>
+<div class="w200 bdc h100 lh100 dib">
+	<style>
+		#s {
+			vertical-align: top;
+			display: inline-block;
+			width: 100px;
+			height: 20px;
+			line-height: 100%;
+		}
+	</style>
+	<span id="s" class="bge0">inline-block</span>
+</div>
+<div class="w50 bdc h50 di">inline</div>
+</body>
+</html>

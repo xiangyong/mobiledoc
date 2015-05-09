@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        div.d1 {
+             border: 2px solid #a1a1a1;
+             /*margin:1px;*/
+             background: #dddddd;
+            width: 80%;
+             height: 1px;
+             border-radius: 25px;
+         }
+        div.d2 {
+            border: 2px solid #a1a1a1;
+            /*margin:1px;*/
+            background: #dddddd;
+            width: 80%;
+            height: 1px;
+            box-shadow: 10px 10px 5px #888888;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="c1">
+    <div class="d1"></div>
+</div>
+
+<div id="c2">
+    <div class="d2"></div>
+</div>
+<script>
+
+    var c1 = document.getElementById('c1');
+    var c2 = document.getElementById('c2');
+    var i = 100;
+    while(i>0){
+        var tmpDiv = document.createElement('div');
+        tmpDiv.classList.add('d1');
+        c1.appendChild(tmpDiv);
+        i--;
+    }
+    i=100;
+    while(i>0){
+        var tmpDiv = document.createElement('div');
+        tmpDiv.classList.add('d2');
+        c2.appendChild(tmpDiv);
+        i--;
+    }
+
+
+</script>
+</body>
+</html>

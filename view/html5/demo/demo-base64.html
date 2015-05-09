@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<img data-src="mm.jpg"/>
+<img data-src="mm1.jpg"/>
+<img data-src="mm2.jpg"/>
+
+<script>
+    var imgArr = ['mm.jpg', 'mm1.jpg', 'mm2.jpg'];
+    var imgs = document.querySelectorAll('img');
+
+    [].slice.call(imgs).forEach(function(img){
+        var src = img.dataset.src;
+        var imgStr = localStorage.getItem(src);
+        if(imgStr){
+            img.src = imgStr;
+        }else{
+            img.onload = function(){
+                var imgBase64 = getBase64Image(this);
+                localStorage.setItem(src, imgBase64);
+            }
+            img.src = src;
+        }
+    });
+    function getBase64Image(img){
+        var canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        var dataURL = canvas.toDataURL("image/png");
+        return dataURL;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+body{
+    margin:     0 auto;
+    max-width:  640px;
+    font-family:Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;
+    font-size: 14px;
+}
+h1{
+    font-size:100%;
+    margin:0;
+}
+div, p{
+    /* -webkit-box-sizing:border-box; */
+    /* border:1px dashed red; */
+}
+.line{
+}
+.fn_wrap{
+    padding: 10px;
+
+}
+.line1{
+    height:       15px;
+    line-height:  15px;
+    margin: 0 10px;
+    padding: 10px 0;
+    border-bottom:1px solid #eee;
+}
+.line1 .tit{
+    float:left;
+}
+.line1 .price{
+    color:       #e4393c;
+    font-weight: 700;
+    margin-right:10px;
+}
+.line1 .old_price{
+    color:          #b5b5b5; margin-right:8px; font-size:12px;
+    text-decoration:line-through;
+}
+.line1 .row_right{
+    float:right;
+}
+.line1 .saleno{
+    color:       #b5b5b5; font-size:12px;
+    margin-right:5px;
+}
+.line2{
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin: 0 10px;
+    margin-top: -1px;
+    font-size: 12px;
+}
+.line2 .to{
+    float: left;
+    width: 38px;
+    font-size: 12px;
+    color: #999;
+}
+.line2 .mid{
+    margin-left: 38px;
+    margin-right: 25px;
+    color: #333;
+}
+.line2 .addr{
+    margin-bottom: 4px;
+
+}
+.line2 .time{
+
+}

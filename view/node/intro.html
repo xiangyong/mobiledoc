@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+
+    curl http://npmjs.org/install.sh | sh
+    npm --version
+    npm install color
+
+    npm install color -g
+    //可能是命令行工具，所以需要全局，比如express
+    npm install -g express
+    mkdir mysite && cd mysite
+    express
+
+
+    echo $NODE_PATH
+    $NODE_PATH/node_modules/colors
+
+    index.js => require('color');
+
+    package.json
+    ex:
+    {
+        "name" : "human_npm_test",
+        "version" : "0.0.1",
+        "dependencies" : {
+            "colors" : ".0.5.0"
+        }
+
+    }
+
+    //在主目录（有package.json) 执行：npm install
+
+    //发布 npm publish
+
+    //别人引用require('human_npm_test');让node知道该载入哪个文件，
+    //在package.json 加入main属性
+    {
+        "main" : './index"
+    }
+
+    //查看package.json配置： npm help json
+
+    //serch
+    npm search realtime //搜索的是关键字name,tag,desc
+
+    //查看package.json
+    npm view socket.io
+
+
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'cli',
+            html:$('#test1').html(),
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

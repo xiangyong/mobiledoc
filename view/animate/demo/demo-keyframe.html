@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        .block {
+            width: 100px;
+            height: 100px;
+            box-sizing: border-box;
+            background-color: grey;
+            color: red;
+        }
+
+        /*animation: name duration timing-function delay iteration-count direction;*/
+        #d1 {
+            -webkit-animation: simple 3s linear 0 infinite;
+        }
+
+        #d2 {
+            -webkit-animation: cicyleAlternate 3s linear 150ms infinite alternate;
+        }
+
+        #d3 {
+            -webkit-animation: singleSimulate 3s linear infinite;
+        }
+
+        @-webkit-keyframes simple {
+            0%, 20% {
+                -webkit-transform: translate(0, 0);
+            }
+            40%, 60% {
+                -webkit-transform: translate(100px, 0);
+            }
+            80%, 100% {
+                -webkit-transform: translate(200px, 0);
+            }
+        }
+
+        /*  推荐  */
+        @-webkit-keyframes cicyleAlternate {
+            0%, 15% {
+                -webkit-transform: translate(0, 0);
+            }
+            35%, 65% {
+                -webkit-transform: translate(100px, 0);
+            }
+            85%, 100% {
+                -webkit-transform: translate(200px, 0);
+            }
+        }
+
+        @-webkit-keyframes singleSimulate {
+            0%, 15% {
+                -webkit-transform: translate(0, 0);
+            }
+            25%, 40% {
+                -webkit-transform: translate(100px, 0);
+            }
+            50%, 65% {
+                -webkit-transform: translate(200px, 0);
+            }
+            75%, 85% {
+                -webkit-transform: translate(100px, 0);
+            }
+            100% {
+                -webkit-transform: translate(0, 0);
+            }
+        }
+
+        @-webkit-keyframes singleSimulate2 {
+            0%, 15%, 100% {
+                -webkit-transform: translate(0, 0);
+            }
+            25%, 40%, 75%, 85% {
+                -webkit-transform: translate(100px, 0);
+            }
+            50%, 65% {
+                -webkit-transform: translate(200px, 0);
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div style="border:1px dashed red;width:300px;">
+    <div class="block" id="d1">单向-不连贯</div>
+
+    <div class="block" id="d2">双向循环</div>
+
+    <div class="block" id="d3">单向模拟双向</div>
+
+</div>
+<button id="J_pause">pause</button>
+<script>
+    function byId(id) {
+        return document.getElementById(id);
+    }
+    function pause(id, isPlay) {
+        if (id instanceof Array) {
+            id.forEach(function (item, i) {
+                pause(item,isPlay);
+            });
+        } else {
+            !!isPlay == false ? byId(id).style.webkitAnimationPlayState = 'paused'
+                    : byId(id).style.webkitAnimationPlayState = 'running'
+        }
+    }
+    function toggle(fun1, fun2) {
+        var n = 1;
+        return function (e) {
+            (n % 2 !== 0)?  fun1(): fun2();
+            n++;
+        }
+    }
+    var b = toggle(function (e) {
+        pause(['d1', 'd2', 'd3']);
+        byId('J_pause').textContent = 'play'  //textContent IE9+
+    }, function () {
+        pause(['d1', 'd2', 'd3'],true);
+        byId('J_pause').textContent = 'pause';
+    });
+
+    byId('J_pause').addEventListener('click', b, false);
+</script>
+</body>
+</html>

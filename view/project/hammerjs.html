@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/html" id='test1'>
+
+    https://github.com/EightMedia/hammer.js/wiki
+
+    api: http://rawgit.com/EightMedia/hammer.js/master/docs/index.html
+    var element = document.getElementById('test_el');
+    var hammertime = Hammer(element).on("tap", function(event) {
+        alert('hello!');
+    });
+    You can change the default settings by adding an second argument with options
+
+    var hammertime = Hammer(element, {
+        drag: false,
+        transform: false
+    });
+
+    Gesture Options
+
+    behavior:
+    contentZooming: "none"
+    tapHighlightColor: "rgba(0,0,0,0)"
+    touchAction: "none"
+    touchCallout: "none"
+    userDrag: "none"
+    userSelect: "none"
+    doubleTapDistance: 20
+    doubleTapInterval: 300
+    drag: true
+    dragBlockHorizontal: false
+    dragBlockVertical: false
+    dragDistanceCorrection: true
+    dragLockMinDistance: 25
+    dragLockToAxis: false
+    dragMaxTouches: 1
+    dragMinDistance: 10
+    gesture: false
+    hold: true
+    holdThreshold: 2
+    holdTimeout: 500
+    preventDefault: false
+    preventMouse: false
+    release: true
+    showTouches: true
+    swipe: true
+    swipeMaxTouches: 1
+    swipeMinTouches: 1
+    swipeVelocityX: 0.7
+    swipeVelocityY: 0.6
+    tap: true
+    tapAlways: true
+    tapMaxDistance: 10
+    tapMaxTime: 250
+    touch: true
+    transform: true
+    transformMinRotation: 1
+    transformMinScale: 0.01
+
+
+    Event Data
+
+    timestamp        {Number}        time the event occurred
+    target           {HTMLElement}   target element
+    touches          {Array}         touches (fingers, mouse) on the screen
+    pointerType      {String}        kind of pointer that was used. matches Hammer.POINTER_MOUSE|TOUCH
+    center           {Object}        center position of the touches. contains pageX and pageY
+    deltaTime        {Number}        the total time of the touches in the screen
+    deltaX           {Number}        the delta on x axis we haved moved
+    deltaY           {Number}        the delta on y axis we haved moved
+    velocityX        {Number}        the velocity on the x
+    velocityY        {Number}        the velocity on y
+    angle            {Number}        the angle we are moving from the start point.
+    interimAngle     {Number}        interim angle since the last movement.
+    direction        {String}        the direction moving from the start point. matches Hammer.DIRECTION_UP|DOWN|LEFT|RIGHT
+    interimDirection {String}        interim direction since the last movement. matches Hammer.DIRECTION_UP|DOWN|LEFT|RIGHT
+    distance         {Number}        the distance we haved moved
+    scale            {Number}        scaling of the touches, needs 2 touches
+    rotation         {Number}        rotation of the touches, needs 2 touches *
+    eventType        {String}        matches Hammer.EVENT_START|MOVE|END
+    srcEvent         {Object}        the source event, like TouchStart or MouseDown *
+    startEvent       {Object}        contains the same properties as above,
+    but from the first touch. this is used to calculate
+    distances, deltaTime, scaling etc
+
+    Instance methods
+
+
+    Horizontal swipe and drag
+
+    var options = {
+        dragLockToAxis: true,
+        dragBlockHorizontal: true
+    };
+    var hammertime = new Hammer(element, options);
+    hammertime.on("dragleft dragright swipeleft swiperight", function(ev){ });
+
+    Transform (pinch, rotate)
+
+    var options = {
+        preventDefault: true
+    };
+    var hammertime = new Hammer(element, options);
+    hammertime.on("transform", function(ev){ });
+
+    Vertical swipe and drag
+
+    Because vertical movements are very tricky on devices, people intent to scroll,
+    you should try to avoid these. If you do want them, the best way to configure Hammer is just to prevent the defaults.
+
+    var options = {
+    preventDefault: true
+    };
+    var hammertime = new Hammer(element, options);
+    hammertime.on("dragup dragdown swipeup swipedown", function(ev){ });
+
+
+    One hammer to rule them all.
+
+    When you are building an app (phonegap, webapp, or something),
+    it is a smart idea to make use of the event delegation Hammer offers.
+    You simply create an instance on the document.body and you can bind any gesture event to any element on the page,
+    without having to create a new instance.
+
+
+
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'test1',
+            html:$('#test1').html(),
+            demoPage:'demo1.html'
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

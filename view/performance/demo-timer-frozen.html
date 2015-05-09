@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="times">times:</div>
+<script>
+    var times = 0;
+    var timesDiv = document.getElementById('times');
+
+
+    if(/Android|webOS|iPhone|Windows Phone|iPod|BlackBerry|SymbianOS/i.test(navigator.userAgent)){
+        mobile();
+    }else{
+        pc();
+    }
+
+
+
+    function pc(){
+        setInterval(function(){
+            times ++;
+            timesDiv.textContent = 'times:'+times;
+            document.title = times;
+        },100);
+    }
+    function mobile(){
+        setInterval(function(){
+            times ++;
+            timesDiv.textContent = 'times:'+times;
+            document.title = times;
+        },1000);
+    }
+
+</script>
+</body>
+</html>

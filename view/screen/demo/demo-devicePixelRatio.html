@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0">-->
+    <title></title>
+    <!--<script src="http://localhost:3000/remoty.js" ></script>-->
+</head>
+<body>
+
+
+<script>
+
+    function print(msg){
+        document.write(msg + '<br />');
+        console&&console.log(msg);
+//        alert(msg);
+    }
+
+
+    //独立像素，并非物理像素
+    //iphone的是独立像素，
+    //sumsung 是独立像素
+
+    //三星Galaxy Trend机子是 物理像素
+    print('screen.width:'+ screen.width);
+    print('screen.height:'+ screen.height);
+
+    print('');
+
+    //visual viewport  可以通过缩放来调整
+    //可以理解为屏幕显示了多少像素
+    //当viewport initial-scale=1;user-scalable=0 的时候 window.innerWidth = document.documentElement.clientWidth
+
+    //想测试ard的物理像素可以设置viewport initial-scale=1;user-scalable=0，
+    // 这个属性就是ard的独立像素，可以算出devicePixelRatio
+    //sumsung 是物理像素
+    print('window.innerWidth:'+window.innerWidth);
+    print('window.innerHeight:'+window.innerHeight);
+
+    print('');
+
+    //layout viewport  缩放不可以调整
+    //layout viewport  就是整个documentElement 的 width/height
+    print('document.documentElement.clientWidth:'+ document.documentElement.clientWidth);
+    print('document.documentElement.clientHeight:'+ document.documentElement.clientHeight);
+
+    print('');
+
+    //devicePixelRatio : 物理像素 / 独立像素
+    print('window.devicePixelRatio:'+window.devicePixelRatio);
+
+
+</script>
+</body>
+</html>

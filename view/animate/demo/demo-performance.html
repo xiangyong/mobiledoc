@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        .block {
+            width: 100px;
+            height: 100px;
+            background-color: grey;
+        }
+
+        #d1 {
+            -webkit-transition: -webkit-transform 0.5s ease;
+            -webkit-transform: translate(0, 0);
+        }
+
+        #d1.left {
+            -webkit-transform: translate(1000px, 0);
+        }
+
+        #d2 {
+            -webkit-transition: -webkit-transform 0.5s ease;
+            -webkit-transform: translate3d(0, 0, 0);
+        }
+
+        #d2.left {
+            -webkit-transform: translate3d(1000px, 0, 0);
+        }
+
+    </style>
+</head>
+<body>
+<button onclick="d1click();">d1</button>
+<button onclick="d2click();">d2</button>
+<button onclick="reset();">reset</button>
+
+<div id="d1" class="block"></div>
+
+<div id="d2" class="block"></div>
+
+<script>
+    var d1 = document.getElementById('d1');
+    var d2 = document.getElementById('d2');
+    function d1click() {
+        console.log('d1click');
+        d1.classList.add('left')
+    }
+
+    function d2click() {
+        console.log('d2click');
+        d2.classList.add('left')
+    }
+
+    function reset() {
+        d1.classList.remove('left');
+        d2.classList.remove('left');
+
+      d1.style.webkitTransform = 'translate(0,0)';
+      d2.style.webkitTransform = ' translate3d(0, 0, 0)';
+    }
+
+</script>
+</body>
+</html>

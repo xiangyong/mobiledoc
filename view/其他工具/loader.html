@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+
+    如需检查配置是否正确可按这个顺序检查 uri-brokers.xml > sofa-config.properties > antx.properties
+
+    ## 模板
+    personalportal_templates = /home/admin/build/htdocs/templates
+    ## uisvr 1.5
+    prod_ui_template = /home/admin/build/htdocs/uisvr
+    ## uisvr 2.0
+    ui_tpl = /home/admin/uiweb/uitpl
+    ## cms
+    cms_root_2 = /home/admin/sharedata/ecmng_publish
+    比如配置统一导航，配置为 /public/common/uninav，loader 会按顺序寻找直到 ui_tpl，
+    所以真正的文件路径应该是 /home/admin/uiweb/uitpl/public/common/uninav/head.vm
+
+    #cmsparse("/authcenter/login/audioCheckSwitch.vm")
+    -->/home/admin/sharedata/ecmng_publish/authcenter/login/audioCheckSwitch.vm
+
+    #parse("/component/headNotice.vm")
+
+
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'loader',
+            html:$('#test1').html(),
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

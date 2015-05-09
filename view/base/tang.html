@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+
+    var RES_POEM = _TEXT(function(){/*
+     　　更吹落，星如雨。
+     　　宝马雕车香满路。
+     　　凤箫声动，玉壶光转，一夜鱼龙舞。
+     　　蛾儿雪柳黄金缕，
+     　　笑语盈盈暗香去。
+     　　众里寻他千百度，
+     　　蓦然回首，那人却在灯火阑珊处。
+     */});
+    function _TEXT(wrap) {
+        return wrap.toString().match(/\/\*\s([\s\S]*)\s\*\//)[1];
+    }
+
+    //css覆盖率
+    var usage = [];
+    var sheets = document.styleSheets;
+
+    for(var i = sheets.length - 1; i != -1; i--) {
+        var rules = sheets[i].rules;
+
+        for(var j = rules.length - 1; j != -1; j--) {
+            var rule = rules[j];
+            var text = rule.selectorText;
+
+            usage.push({name: text, count: document.querySelectorAll(text).length});
+        }
+    }
+    usage.sort(function(a, b){return a.count - b.count});
+
+    for(var i = usage.length - 1; i != -1; i--) {
+        console.log("选择器：" + usage[i].name + "\n\t匹配数：" + usage[i].count);
+    }
+
+    //直接引用id
+    if('mozHidden' in document) [].forEach.call(document.querySelectorAll('[id]'),function(k){window[k.id]=k});
+
+    //setInterval 极限
+    var n = 0;
+    var max = 0;
+
+    function tick()
+    {
+        n++;
+    }
+    function report()
+    {
+        if(n > max)
+            max = n
+
+        document.title = n + " Max:" + max + " : ";;
+        n = 0;
+    }
+    setInterval(tick, 1);
+    setInterval(report, 1000);
+
+    //http://www.cnblogs.com/index-html/archive/2011/10/08/fav_load_js_min.html
+    javascript:with(document)0[body.appendChild(createElement('script')).src='http://t.cn/ShMoyb']
+
+    //如果存在，使用1，不存在，使用2
+    var x;
+    if(window.ActiveXObject)
+        x = new ActiveXObject("Microsoft.XMLHTTP");
+    else
+        x = new XMLHttpRequest();
+
+    var xmlhttp = window.ActiveXObject? new ActiveXObject("Microsoft.XMLHTTP") : new XMLHttpRequest();
+
+    var xmlhttp = (new XMLHttpRequest() ||new ActiveXObject("Microsoft.XMLHTTP") );
+    var xmlhttp = new (XMLHttpRequest() || ActiveXObject("Microsoft.XMLHTTP")); //报错， 没有用new call, 而是direct call
+    var xmlhttp = new (window.XMLHttpRequest || ActiveXObject)("Microsoft.XMLHTTP");
+
+//    其实用self对象完全可以代替window。self是window的只读属性
+//    如果不是在内嵌框架里运行的话，top===window
+
+    (execScript || eval)("var a=1");
+
+    Function.prototype.toString = function(){return "function "+this.name+"(){\r\n\t[native code] \r\n}"};
+    function A() {
+        alert(123);
+    }
+    alert(
+            document.body.appendChild(
+                    document.createElement('iframe')
+            ).contentWindow.Function.constructor.prototype.toString.call(A)
+    )
+
+
+//            [].forEach.call($$("*"),function(a){
+//                a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)
+//            })
+    //    ，document.all
+
+    //    var a = 12.34, // ~~a = 12
+    //      b = -1231.8754, // ~~b = -1231
+    //     c = 3213.000001 // ~~c = 3213
+
+    // currying
+//    function add(a,b,c) {
+//        return a+b+c;
+//    }
+//    a = add.bind(undefined,1,1)
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'test1',
+            html:$('#test1').html(),
+            demoPage:'demo1.html'
+        },
+        {
+            name:'search',
+            demoPage:'demo/search.html'
+        },
+        {
+            name:'img改变width很影响性能',
+            demoPage:'demo/img.html'
+        },
+        {
+            name:'技能冷却',
+            demoPage:'demo/cold.html'
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

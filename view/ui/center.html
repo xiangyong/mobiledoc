@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+    1、使用lineHeight = height
+    2、不设置height，使用padding:10px 0;来自动居中
+    3、父容器使用display:table-cell;vertical-align:middle;
+    4、使用绝对定位top:50%,left:50%,margin-top:-height/2;margin-left:-width/2;
+    5、使用父容器display:-webkit-box; -webkit-box-orient:horizontal;-webkit-box-pack:center; -webkit-box-align:center;
+
+    传送门：http://localhost/www/mobile/doc/view/css/layout.html?name=layout&controller=css&desc=%E6%96%B0%E7%9A%84%E5%B8%83%E5%B1%80%E7%89%B9%E6%80%A7flexbox&dir=css&pageName=layout
+
+
+</script>
+<script type="text/javascript" id='test2'>
+
+    如果是一行里面有左右2个浮动
+    如果是float=right的时候需要包裹起来
+
+</script>
+<script type="text/javascript" id='test3'>
+    http://blog.sina.com.cn/s/blog_54e095c70100phux.html
+    http://www.cnblogs.com/2050/archive/2012/08/10/2632256.html
+    换行，省略号
+    word-break:
+    word-wrap:
+    word-spacing:
+    white-space:
+
+</script>
+<script type="text/javascript" id='test4'>
+    行高指的是文本行的基线间的距离。而基线（Base line），指的是一行字横排时下沿的基础线，
+    基线并不是汉字的下端沿，而是英文字母x的下 端沿，同时还有文字的顶线（Top line）、中线（Middle line）和底线（Bottom line）
+    http://www.educity.cn/jianzhan/630291.html
+            line-height : normal | <实数> | <长度> | <百分比> | inherit
+
+    line-height=height居中的原理是拉大了行内框
+    http://www.jb51.net/css/29328.html
+
+    vertical-align 是基于行内框（inline box）的！！！
+</script>
+<script type="text/javascript" id='test5'>
+
+</script>
+<script>
+    Demo.writeExample([
+        {
+            name:'垂直居中',
+            html:$('#test1').html(),
+        },
+
+        {
+            name:'一行里面左右布局',
+            html:$('#test2').html(),
+            demoPage:'demo/demo-left-right.html'
+        },
+        {
+            name:'换行，省略号',
+            html:$('#test3').html(),
+            demoPage:'demo/demo-word.html'
+        },
+        {
+            name:'lineheight',
+            html:$('#test4').html(),
+            demoPage:'demo/demo-lineheight.html'
+        },
+        {
+            name:'inline和inline-block共存问题',
+            html:$('#test5').html(),
+            demoPage:'demo/demo-inline.html'
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

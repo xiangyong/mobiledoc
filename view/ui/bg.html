@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+    background-clip 属性规定背景的绘制区域。
+
+    background-clip: border-box|padding-box|content-box;
+
+    border-box	背景被裁剪到边框盒。	测试
+    padding-box	背景被裁剪到内边距框。	测试
+    content-box	背景被裁剪到内容框。	测试
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'test1',
+            html:$('#test1').html(),
+            demoPage:'demo/demo-background.html'
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

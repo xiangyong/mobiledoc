@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <script type="text/javascript" src="zepto.js"></script>
+    <script type="text/javascript" src="touch.js"></script>
+    <title></title>
+    <style>
+        body {
+            -webkit-user-select: none;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .pages {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        .page {
+            padding-top: 100px;
+            padding-left: 100px;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /*display: none;*/
+            background-color: #ffff00;
+
+            -webkit-transition: all 500ms ease-in-out;
+            transition: all 0.3s ease-in-out;
+
+            -webkit-transform: translateX(100%);
+
+            /*overflow: hidden;*/
+        }
+
+        /*.current {*/
+        /*-webkit-transform: translateX(0%);*/
+        /*}*/
+
+        #banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        #banner > div {
+            width: 100px;
+            height: 30px;
+            background-color: grey;
+            margin: 2px 0;
+        }
+
+        .back {
+
+        }
+    </style>
+</head>
+<body>
+
+<div class="pages">
+    <div id="scene1" class="page" style="-webkit-transform:translateX(0%);">support swipeLeft,swipeRight</div>
+    <div id="scene2" class="page" style="background:red;">support swipeLeft,swipeRight</div>
+</div>
+
+<div id="banner">
+    <div id="back">back</div>
+    <div id="forward">forward</div>
+</div>
+<script>
+    //    -webkit-transform: translateX(-100%);
+    var $pages = $('.pages');
+    var $banner = $('#banner');
+    $('#forward').click(function (e) {
+        $('#scene1', $pages).css('-webkit-transform', 'translateX(-100%)');
+        $('#scene2', $pages).css('-webkit-transform', 'translateX(0%)');
+    });
+
+    $('#back').click(function (e) {
+        $('#scene1', $pages).css('-webkit-transform', 'translateX(0%)');
+        $('#scene2', $pages).css('-webkit-transform', 'translateX(100%)');
+    });
+
+    touch.on('body', 'swiperight', function (ev) {
+        $('#back').click();
+    });
+
+    touch.on('body', 'swipeleft', function (ev) {
+        $('#forward').click();
+    });
+
+
+</script>
+</body>
+</html>

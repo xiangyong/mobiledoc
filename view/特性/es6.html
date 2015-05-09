@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+    http://youmightnotneedjquery.com/
+
+    el.insertAdjacentHTML('afterend', htmlString);
+    el.insertAdjacentHTML('beforebegin', htmlString);
+    el.children
+    el !== child && el.contains(child);
+
+    $(el).find(selector).length;
+    IE8+  el.querySelector(selector) !== null
+
+    Array.prototype.filter.call(document.querySelectorAll(selector), filterFn);
+
+    el.querySelectorAll(selector);
+    document.querySelectorAll('.my #awesome selector');
+    getComputedStyle(el)[ruleName];
+    el.getAttribute('tabindex');
+
+    el.outerHTML
+    el.textContent
+
+    el === otherEl
+
+    $(el).is('.my-class');
+
+    var matches = function(el, selector) {
+        return (el.matches || el.matchesSelector || el.msMatchesSelector || el.mozMatchesSelector || el.webkitMatchesSelector || el.oMatchesSelector).call(el, selector);
+    };
+
+    matches(el, '.my-class');
+
+    el.nextElementSibling
+
+    var rect = el.getBoundingClientRect()
+
+    {
+        top: rect.top + document.body.scrollTop,
+                left: rect.left + document.body.scrollLeft
+    }
+    el.offsetParent || el
+
+    $(el).outerHeight();
+    el.offsetHeight
+
+
+    function outerHeight(el){
+        var height = el.offsetHeight;
+        var style = getComputedStyle(el);
+
+        height += parseInt(style.marginTop) + parseInt(style.marginBottom);
+        return height;
+    }
+
+    outerHeight(el);
+
+    el.parentNode
+
+    {left: el.offsetLeft, top: el.offsetTop}
+
+    el.getBoundingClientRect()
+
+    parent.insertBefore(el, parent.firstChild);
+
+    el.parentNode.removeChild(el);
+
+
+    function fadeIn(el) {
+        var opacity = 0;
+
+        el.style.opacity = 0;
+        el.style.filter = '';
+
+        var last = +new Date();
+        var tick = function() {
+            opacity += (new Date() - last) / 400;
+            el.style.opacity = opacity;
+            el.style.filter = 'alpha(opacity=' + (100 * opacity)|0 + ')';
+
+            last = +new Date();
+
+            if (opacity < 1) {
+                (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+            }
+        };
+
+        tick();
+    }
+
+    string.trim();
+
+    var parseHTML = function(str) {
+        var tmp = document.implementation.createHTMLDocument();
+        tmp.body.innerHTML = str;
+        return tmp.body.children;
+    };
+
+    parseHTML(htmlString);
+
+    Array.isArray(arr);
+
+    ['a','b'].indexOf('a')
+
+    document.addEventListener('DOMContentLoaded', function(){
+    });
+
+
+    //Trigger Custom
+    if (window.CustomEvent) {
+        var event = new CustomEvent('my-event', {detail: {some: 'data'}});
+    } else {
+        var event = document.createEvent('CustomEvent');
+        event.initCustomEvent('my-event', true, true, {some: 'data'});
+    }
+    el.dispatchEvent(event);
+
+    //Trigger Native
+    // For a full list of event types: https://developer.mozilla.org/en-US/docs/Web/API/document.createEvent
+    event = document.createEvent('HTMLEvents');
+    event.initEvent('change', true, false);
+    el.dispatchEvent(event);
+
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'test1',
+            html:$('#test1').html(),
+            demoPage:'demo1.html'
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

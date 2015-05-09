@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+
+        html, body, p {
+            margin: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        .flexbox {
+            width: 300px;
+            height: 300px;
+            border: 1px dashed green;
+            text-align: center;
+        }
+
+        .tip {
+            width: 100px;
+            height: 100px;
+            max-width: 296px;
+            max-height: 296px;
+            border: 2px dashed green;
+            resize:both;
+            overflow:auto;
+        }
+
+        .d1 .flexbox {
+            display: -webkit-box;
+            -webkit-box-orient: horizontal;
+            -webkit-box-pack: center;
+            -webkit-box-align: center;
+        }
+
+        .d1 .tip {
+
+        }
+
+        .d2 .flexbox {
+            display: table-cell;
+            vertical-align: middle;
+
+        }
+
+        .d2 .tip {
+            margin: 0 auto;
+        }
+
+        .d3 .flexbox {
+            position: relative;
+        }
+
+        .d3 .tip {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="d1">
+    <div class="flexbox">
+        <div class="tip">resize me</div>
+    </div>
+</div>
+
+
+<div class="d2">
+    <div class="flexbox">
+        <div class="tip">resize me</div>
+    </div>
+</div>
+
+
+<div class="d3">
+    <div class="flexbox">
+        <div class="tip">resize me</div>
+    </div>
+</div>
+
+<script>
+    var tip3;
+    window.onload = function () {
+        tip3 = document.querySelector('.d3 .tip');
+        var currentStyle = document.defaultView.getComputedStyle(tip3,null);
+        tip3.style.top = parseFloat(currentStyle.top) - tip3.offsetHeight / 2 + 'px';
+        tip3.style.left = parseFloat(currentStyle.left) - tip3.offsetWidth / 2 + 'px';
+    }
+</script>
+</body>
+</html>

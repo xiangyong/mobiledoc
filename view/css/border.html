@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+
+    border-radius,box-shadow  IE9+
+
+    div
+    {
+        border:2px solid;
+        border-radius:25px;
+    }
+
+    div
+    {
+        box-shadow: 10px 10px 5px #888888;
+    }
+
+    CSS3 Linear Gradients: http://www.w3schools.com/css/css3_gradients.asp
+
+    background: -webkit-linear-gradient(red, blue)
+    background: -webkit-linear-gradient(left, red , blue);
+    background: -webkit-linear-gradient(left top, red , blue);
+    background: -webkit-linear-gradient(180deg, red, blue);
+    background: -webkit-linear-gradient(red, green, blue);
+    background: -webkit-linear-gradient(left,red,orange,yellow,green,blue,indigo,violet);
+    background: -webkit-radial-gradient(circle, red, yellow, green); /* Safari */
+    background: -webkit-radial-gradient(red 5%, green 15%, blue 60%); /* Safari 5.1-6.0 */
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'border',
+            html:$('#test1').html(),
+            demoPage:'demo/demo-border.html'
+        },
+    {
+        name:'border小三角',
+                html:'border小三角',
+            demoPage:'demo/demo-border-triangle.html'
+    }
+    ]);
+
+</script>
+
+</body>
+</html>

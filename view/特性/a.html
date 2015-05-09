@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black" />-->
+    <title></title>
+    <style>
+        a{
+            display:block;
+            margin:20px;
+        }
+    </style>
+</head>
+<body>
+
+<a id="aaa" href="tel:111">阻止掉，拨打</a>
+<a id="bbb" href="tel:111">阻止</a>
+<a id="ccc" href="tel:111">阻止，alert，拨打</a>
+<a id="ddd" href="tel:111111" data-num="111111">符合兼容性</a>
+
+<script>
+var isIos = /iphone/i.test(navigator.userAgent);
+aaa.onclick = function(e){
+    e.preventDefault();
+    location.href='tel:111';
+}
+bbb.onclick = function(e){
+    e.preventDefault();
+}
+ccc.onclick = function(e){
+    e.preventDefault();
+    alert('hehe')
+    location.href='tel:111';
+}
+ddd.onclick = function(e){
+    //ios会多弹出一个框
+    if(!isIos){
+        var num = e.currentTarget.dataset.num;
+        e.preventDefault();
+        if(confirm('拨打:' +num +'?' )){
+            location.href='tel:111';
+        }
+    }
+}
+
+</script>
+</body>
+</html>

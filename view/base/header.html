@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/html" id='test1'>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,address=no,email=no" />
+    <!-- 强制将页面布局为一列 -->
+    <meta name="mobileOptimized" content="width" />
+    <!-- 申明页面是移动友好的 -->
+    <meta name="handheldFriendly" content="true" />
+    <!-- 允许用户使用全屏模式浏览 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 当用户使用全屏浏览时，将状态条设置为黑色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <meta name=”apple-mobile-web-app-status-bar-style” content=”default” />
+    <meta name=”apple-mobile-web-app-status-bar-style” content=”black” />
+    <meta name=”apple-mobile-web-app-status-bar-style” content=”black-translucent” />
+    默认值为default（白色），可以定为black（黑色）和black-translucent（灰色半透明）。
+    <!--<link rel="stylesheet" href="your_css_url" />-->
+    <!--<script src="your_js_mods_url"></script>-->
+
+            <link rel="apple-touch-icon" href="head.jpg"/>   //webapp 添加到主屏幕的图标
+            <link rel="apple-touch-icon-precomposed" href="touch-icon-precomposed.png" />
+            通过 apple-touch-icon 添加的图标是会带iOS图标统一的高光效果
+            通过 apple-touch-icon-precomposed 添加的图标则是设计原图，不带高光渐变效果的。
+
+            iOS设备icon	最适尺寸(px)
+            iPhone 和 iTouch	                57 x 57
+            retina iPhone 和 retina iTouch	114 x 114
+            iPad	                        72 x 72
+            retina iPad                         144 x 144
+
+            相应地，要指定不同分辨率的设备的图标，可以添加相应的 <link> 标签序列，官方建议的顺序是这样的
+            <link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+            <link rel="apple-touch-icon" sizes="72x72" href="touch-icon-ipad.png" />
+            <link rel="apple-touch-icon" sizes="114x114" href="touch-icon-iphone-retina.png" />
+            <link rel="apple-touch-icon" sizes="144x144" href="touch-icon-ipad-retina.png" />
+            如果没有指明 <sizes> 属性的大小，则默认值为57×57。
+            如果整个页面都没有指定任何的 apple-touch-icon 的图标的话，iOS则会自动去网站根目录寻找
+            有 apple-touch-icon 和 apple-touch-icon-precomposed 前缀的图标文件。
+
+            不仅支持png格式的，jpg和gif也在支持的列表中
+
+            下面的语句指定浏览器按照最高的标准模式解析页面。
+            <meta http-equiv="X-UA-Compatible" content="IE=Edge" >
+            <meta http-equiv="X-UA-Compatible" content="chrome=1">
+                Chrome Frame
+
+            <meta content="email=no" name="format-detection" />  //不让android识别邮箱
+
+            <meta name="apple-mobile-web-app-capable" content="yes"> //加后将网页添加到主屏幕，没有浏览器边框
+
+            <meta name="apple-mobile-web-app-title" content="webapp指定标题"> //通过meta标签来给主屏webapp指定标题
+
+            <link rel="apple-touch-startup-image" href="apphead.png">  //启动动画（不起作用）
+
+            <meta name="apple-mobile-web-app-status-bar-style" content="black"/> //状态栏（不起作用)
+
+            <meta name="format-detection" content="telephone=no"> //是否自动把电话号码转为链接
+
+            <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> //控制屏幕属性
+            /*
+             viewport是一个针对移动web的meta标签，它的主要属性如下：
+             width：控制 viewport 的大小，可以指定的一个值，如果 600，或者特殊的值，如 device-width 为设备的宽度（单位为缩放为 100% 时的 CSS 的像素）。
+             height：和 width 相对应，指定高度。
+             initial-scale：初始缩放比例，也即是当页面第一次 load 的时候缩放比例。
+             maximum-scale：允许用户缩放到的最大比例。
+             minimum-scale：允许用户缩放到的最小比例。
+             user-scalable：用户是否可以手动缩放
+             */
+
+
+</script>
+
+<script type="text/html" id='test2'>
+
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'head',
+            html:$('#test1').html(),
+        },
+        {
+            name:'webapp demo page',
+            demoPage:'demo/demo-header.html'
+        },
+
+    ]);
+
+</script>
+
+</body>
+</html>

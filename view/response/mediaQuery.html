@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/html" id='test1'>
+
+    http://www.qianduan.net/media-type-and-media-query.html
+
+    “all”类型惯用于表明该样式表应用于所有媒体类型。
+
+    <link rel="stylesheet" type="text/css" media="screen" href="screen.css">
+     <link rel="stylesheet" type="text/css" media="print" href="print.css">
+
+    @media screen {
+        #d1{
+            color:red;
+        }
+    }
+
+    下列为在CSS中使用@import规则编写的相同媒体查询：
+    @import url(example.css) screen and (color);
+
+
+    即：下列两句相同
+    @media all and (min-width:500px) { … }
+    @media (min-width:500px) { … }
+
+    <link rel="stylesheet" media="not screen and (color)" href="example.css" />
+
+    <link rel="stylesheet" media="(max-width: 800px)" href="example.css" />
+    <!-- 样式表中的CSS媒体查询 -->
+        @media (max-width: 600px) {
+            .facet_sidebar {
+                display: none;
+            }
+        }
+
+    handled 便携设备，如手机、平板电脑
+    print 打印预览图等
+    projection 投影设备
+
+    <link rel="stylesheet" media="all and (max-device-width: 480px)" href="iphone.css">
+    <link rel="stylesheet" media="all and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)" href="ipad-portrait.css">
+    <link rel="stylesheet" media="all and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)" href="ipad-landscape.css">
+    <link rel="stylesheet" media="all and (min-device-width: 1025px)" href="ipad-landscape.css">
+
+</script>
+<script type="text/html" id='test2'>
+    一个例子
+</script>
+
+<script>
+    Demo.writeExample([
+        {
+            name:'test1',
+            html:$('#test1').html(),
+            demoPage:'mediaquery/media.html'
+        },
+        {
+            name:'demo1',
+            html:$('#test2').html(),
+            demoPage:'mediaquery/demo1.html'
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

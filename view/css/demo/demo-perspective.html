@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<style>
+
+    #p {
+        position: absolute;
+        left: 40%;
+        top: 40%;
+
+        /*background-color:gray;*/
+        background-color: rgba(100, 100, 100, 0.5);
+
+        -webkit-animation: rr 5s infinite linear;
+
+        box-sizing: border-box;
+        height: 300px;
+        width: 300px;
+        border: 1px solid red;
+
+        -webkit-perspective: 600;
+        -webkit-transform-style: preserve-3d;
+
+        /*-webkit-transform-origin:0 50%;*/
+
+    }
+
+    @-webkit-keyframes rr {
+        from {
+            -webkit-transform: rotateY(0deg);
+        }
+        to {
+            -webkit-transform: rotateY(360deg);
+        }
+    }
+
+    #p > :first-child {
+        -webkit-transform: translateZ(-100px) rotateX(-30deg);
+        /*-webkit-backface-visibility: hidden;*/
+    }
+
+    #p > :last-child {
+        -webkit-transform: translateZ(100px) rotateX(30deg)
+    }
+
+    .block {
+        position: absolute;
+        left: 0;
+        top: 0;
+        box-sizing: border-box;
+        height: 100px;
+        width: 100px;
+        background-color: rgba(100, 100, 100, 0.5) -webkit-transform-origin : 50 % top;
+    }
+
+    #range {
+        width: 800px;
+        position: absolute;
+        top: 0;
+        left: 20%;
+    }
+</style>
+<div id="msg">perspective:0</div>
+<input type="range" id="range" min="-100" max="600" step="50" value="0" autocomplete="off">
+
+<div id="p">
+    <div class="block" style="background-color: red">333</div>
+    <div class="block" style="background-color: green">222</div>
+
+</div>
+
+<script>
+    document.getElementById('p').style.webkitPerspective = document.getElementById('range').value - 0;
+    document.getElementById('range').onchange = function (e) {
+        var value = e.target.value;
+        console.log(value);
+        document.getElementById('msg').textContent = 'perspective:' + value;
+        document.getElementById('p').style.webkitPerspective = value - 0;
+    };
+</script>
+
+</body>
+</html>

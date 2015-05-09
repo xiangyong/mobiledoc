@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+
+    uemprod_root=/home/admin
+    uemprod_run=/home/admin/uemprod-run
+    uemprod_output=/home/admin
+    uemprod_loggingRoot=/home/admin/logs
+    uemprod_data=/home/admin/sharedata
+
+    inner_domain=stable.alipay.net
+    core_host=localhost
+    core_port=8080
+
+    imageServer_host=img.alipay.net
+    imageServer_port=80
+
+    uemprod_templates=/home/admin/build/htdocs/templates
+    core_web_port=80
+    core_app_port=7001
+    core_protocol=http
+    core_domainName=uemprod.d2834aqcn.alipay.net
+    prod_ui_template=/home/admin/build/htdocs/uisvr
+    ui_tpl=/home/admin/uiweb/uitpl
+    abtest_template=/home/admin/uiweb/abtest/templates
+    cms_root_2=/home/admin/sharedata/ecmng_publish
+    faq_root=/home/admin/sharedata/faqroot
+    assets_url=http://assets.d2834aqcn.alipay.net
+    apimg_url=https://i.alipayobjects.com
+
+    acctrans_service_url=http://acctrans.stable.alipay.net:8080
+    acctransquery_service_url=http://acctransquery.stable.alipay.net:8080
+    securitycore_service_url=http://securitycore.stable.alipay.net:8080
+    appstore_service_url=http://appstore.stable.alipay.net:8080
+    cif_service_url=http://cif.stable.alipay.net:8080
+    masterdata_service_url=http://masterdata.stable.alipay.net:8080
+    paycore_service_url=http://paycore.stable.alipay.net:8080
+    settlecore_service_url=http://settlecore.stable.alipay.net:8080
+    certify_url=http://certify.stable.alipay.net
+    mquery_service_url=http://mquery.stable.alipay.net
+    caprod_service_url=http://caprod.stable.alipay.net:8080
+    financeprod_service_url=http://financeprod.stable.alipay.net:8080
+    merchant_service_url=http://merchant.stable.alipay.net:8080
+    salesmng_service_url=http://salesmng.stable.alipay.net:8080
+
+
+    biscenter_tr_service_url=biscenter.stable.alipay.net:12200
+    enterprisecif_tr_service_url=enterprisecif.stable.alipay.net:12200
+    userview_tr_service_url=userview.stable.alipay.net:12200
+    barcodeprod_tr_service_url=barcodeprod.stable.alipay.net:12200
+
+    uemprod_url=http://uemprod.d2834aqcn.alipay.net
+    enterpriseportal_url=http://enterpriseportal.stable.alipay.net
+    morderprod_url=http://morderprod.stable.alipay.net
+    mbillexprod_url=http://mbillexprod.stable.alipay.net
+    bizfundprod_url=http://bizfundprod.stable.alipay.net
+    securitycenter_url=http://securitycenter.stable.alipay.net
+    authcenter_url=http://authcenter.stable.alipay.net
+    appstore_url=http://appstore.stable.alipay.net
+    personal_url=http://personal.stable.alipay.net
+    memberprod_url=http://memberprod.stable.alipay.net
+    membercenter_url=http://membercenter.stable.alipay.net
+    merchantprod_url=http://merchantprod.stable.alipay.net
+    couriercore_url=http://couriercore.stable.alipay.net
+    emembercenter_url=http://emembercenter.d2834aqcn.alipay.net
+    emembercenter_tile_url=http://emembercenter.stable.alipay.net
+    alipay_url=http://www.stable.alipay.net
+    epsecuritycenter_url=http://epsecuritycenter.stable.alipay.net
+    financeprod_url=http://financeprod.stable.alipay.net
+    tradeeportlet_url=http://tradeeportlet.jj001.alipay.net
+
+
+    session_hostname             = uemprod
+    session_domain               = alipay.net
+    session_impl                 = com.alipay.common.webx.session.request.internal.DefaultSessionImpl
+    session_maxInactiveInterval  = 600
+    session_access_rule=remote
+    session_cookieName=ALIPAYJSESSIONID
+    session_globalStrategy=cover
+    tairsession_configServerList_master=tair.stable.alipay.net:5198
+    tairsession_configServerList_slave=tair2.stable.alipay.net:5198
+    tairsession_groupName=sessiontair
+    tairsession_namespace=1
+    tair_uemprod_groupname=public
+    tair_uemprod_namespace=87
+
+    core_inbound_timer_threshold=300
+    uemprod_loggingLevel=info
+    uemprod_loggingLevel_info=info
+    cloudengine_zdrmdata_url=http://zdrmdata.stable.alipay.net
+    app_name=uemprod
+    uemprod_admin_ukey=false
+    securitycore_template_root_path=/home/admin/uiweb/cms/securitycore
+
+    uniquery_cif_tr_service_url=cif.stable.alipay.net:12200
+    cif_biz_platform_switchlist=uniquery|bankcard|masterdata
+
+    loggingRoot=/home/admin/logs
+
+    core_esb_tcpm_port=6200
+    core_esb_h2_db_home=/home/admin/sharedata/esbdata
+    run_mode=TEST
+
+    dbmode=dev
+    zdataconsole_service_url=http://zdataconsole.stable.alipay.net:8080
+    zdrmdata_rest_url=http://zdrmdata.stable.alipay.net
+
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'sofa-config.properties',
+            html:$('#test1').html(),
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

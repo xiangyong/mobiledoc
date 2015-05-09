@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+
+    var AOP = {
+        _onAChange: function(){
+            console.log('_onAChange');
+        },
+        _onBChange: function(){
+            console.log('_onBChange');
+        }
+    }
+    function createObj(attributes){
+        var obj = {};
+        var model = {};
+        var Properties = {};
+        for(var i in attributes){
+            (function(i){
+                Properties[i] = {
+                    get: function(value){
+                        return model[value];
+                    },
+                    set: function(value){
+                        model[i] = value;
+                            var aopName = '_on' + 'B' + 'Change';
+                            if(AOP && AOP[aopName]){
+                                AOP[aopName].call(null, value);
+                            }
+                    }
+                }
+            })(i);
+        }
+        Object.defineProperties(obj, Properties);
+        for(i in attributes){
+            obj[i] = attributes[i];
+        }
+        delete AOP;
+        return obj;
+    }
+    var o = createObj({
+        a: '123',
+        b: '456'
+    });
+    o.b = 123;
+    o.b;
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+    移动端和桌面端不一样，它有2个视口(viewport)：可见视口(visual viewport)和 布局视口(layout viewport).
+
+    关于2者的区别，stack overflow有这样的解释：
+    想象下现在有一张不会改变尺寸和形状的大的图片，你手里拿着一个中空的框子(想象下砸空你手机的屏幕)，透过它你可以看到这张图片，
+    并且这个框框的周围是用不透明的材料做成的，你只能通过中间的洞去看这张图片。你可以移动这个框子，靠近自己的眼睛的话可以看到更多的图片区域，
+    也可以使它远离自己的眼睛，从而只看到这张图片的一部分小区域。
+
+    那张不可改变形状和尺寸的图片=布局视口(layout viewport)
+    你手中的中空的框子=可见视口(visual viewport)
+
+    也就是说我们在移动端用手指来缩放屏幕，其实改变的是可见视口(visual viewport)的尺寸，而布局视口(layout viewport)总是保持不变。
+    布局视口(layout viewport)=document.documentElement.clientWidth/Height
+    移动端布局视口(layout viewport)
+
+    可见视口(visual viewport)=window.innerWidth/Height
+
+
+    document.documentElement.scrollHeight;
+    http://www.wheattime.com/mobile-project-summary.html
+
+
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'可见视口(visual viewport)和 布局视口(layout viewport).',
+            html:$('#test1').html(),
+            demoPage:'demo/demo-viewport.html'
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

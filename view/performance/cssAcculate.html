@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+    //CSS3一些效果比如投影，动画等对性能影响很大，对于动画可以用CSS开启硬件加速来提高
+    你知道我们可以在浏览器中用css开启硬件加速，使GPU (Graphics Processing Unit) 发挥功能，从而提升性能吗？
+    http://www.wheattime.com/increase-your-sites-performance-with-hardware-accelerated-css.html
+
+    .cube {
+        -webkit-transform: translate3d(250px,250px,250px)
+        rotate3d(250px,250px,250px,-120deg)
+        scale3d(0.5, 0.5, 0.5);
+    }
+
+    //open 3d 加速
+    .cube {
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        -o-transform: translateZ(0);
+        transform: translateZ(0);
+        /* Other transform properties here */
+    }
+
+    //在 Chrome and Safari中，当我们使用CSS transforms 或者 animations时可能会有页面闪烁的效果，下面的代码可以修复此情况：
+
+    .cube {
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+
+        -webkit-perspective: 1000;
+        -moz-perspective: 1000;
+        -ms-perspective: 1000;
+        perspective: 1000;
+
+        // Other transform properties here
+    }
+    //在webkit内核的浏览器中，另一个行之有效的方法是
+
+    .cube {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        /* Other transform properties here */
+    }
+
+    原生的移动端应用(Native mobile applications)总是可以很好的运用GPU，
+    这是为什么它比网页应用(Web apps)表现更好的原因。硬件加速在移动端尤其有用，因为它可以有效的减少资源的利用(麦时注：移动端本身资源有限)。
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'CSS开启硬件加速',
+            html:$('#test1').html(),
+        },
+
+    ]);
+
+</script>
+
+</body>
+</html>

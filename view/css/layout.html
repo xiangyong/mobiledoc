@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+    box-sizing: border-box;
+
+
+    flexbox：http://www.html5rocks.com/zh/tutorials/flexbox/quick/
+    Flexbox 为 display 属性赋予了一个新的值（即 box 值），还为我们提供了 8 个新的属性：
+
+    http://c7sky.com/dive-into-flexbox.html
+
+    box-orient
+    box-pack
+    box-align
+    box-flex
+    box-flex-group
+    box-ordinal-group
+    box-direction
+    box-lines
+
+    display: box
+    该显示样式的新值可将此元素及其直系子代加入弹性框模型中。Flexbox 模型只适用于直系子代。
+    box-orient
+    值：horizontal | vertical | inherit
+    框的子代是如何排列的？还有两个值：inline-axis（真正的默认值）和 block-axis，但是它们分别映射到水平和垂直方向。
+    box-pack
+    值：start | end | center | justify
+    设置沿 box-orient 轴的框排列方式。因此，如果 box-orient 是水平方向，就会选择框的子代的水平排列方式，反之亦然。
+    box-align
+    值：start | end | center | baseline | stretch
+    基本上而言是 box-pack 的同级属性。设置框的子代在框中的排列方式。如果方向是水平的，该属性就会决定垂直排列，反之亦然。
+    flex-direction
+
+    -webkit-box-flex: 1;
+
+</script>
+
+<script type="text/javascript" id='test2'>
+    在 CSS 中，将对象在水平和垂直方向上的居中一直以来都是个挑战。
+    在仅限 CSS 的前提下，我们能拿出的最佳解决方案就是 position:absolute;
+    left: 50%; top: 50%; 与等于一半宽度/高度的负左侧/顶部边距相结合。而这只能搭配大小确定的元素。啊！
+
+    詹姆斯·约翰·马尔科姆 (James John Malcom) 写道，
+    有一种方法可以根据至少有 6 年历史的 display:table-cell;
+    （杜桑·亚诺夫斯基 (Dušan Janovský) 曾在 2004 年写过）来垂直对齐。
+    詹姆斯在此记录了完整的水平和垂直解决方案。此方案甚至不需要大小确定的元素即可生效。
+
+</script>
+
+<script type="text/html" id='test3'>
+    resize:both;
+    overflow:auto;
+
+    允许长单词换行到下一行：
+    p.test {word-wrap:break-word;}
+    word-break:break-all;
+
+</script>
+<script>
+    Demo.writeExample([
+        {
+            name:'布局',
+            html:$('#test1').html(),
+            demoPage:'demo/demo-flexbox.html'
+        },
+        {
+            name:'居中问题',
+            html:$('#test2').html(),
+            demoPage:'demo/demo-center.html'
+        },
+        {
+            name:'新特性',
+            html:$('#test3').html(),
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

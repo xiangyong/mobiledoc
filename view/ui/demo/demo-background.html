@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .block{
+            color:white;
+            width: 100px;
+            height: 100px;
+            background: black;
+            border: 10px dashed red;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        .b1{
+            background-clip: border-box;
+        }
+        .b2{
+            background-clip: content-box;
+        }
+        .b3{
+            background-clip: padding-box;
+        }
+    </style>
+</head>
+<body cz-shortcut-listen="true">
+
+
+<div class="block b1">
+    border-box;
+</div>
+
+<div class="block b2">
+    content-box;
+</div>
+
+<div class="block b3">
+    padding-box;
+</div>
+
+
+</body>
+</html>

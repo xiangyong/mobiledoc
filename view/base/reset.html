@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+
+    //追求真理开始
+
+    -webkit-appearance:none
+    //可以这样设置,取消webkit ua的默认样式
+
+    body {
+        margin:8px;
+        font-size: 16px;
+    }
+
+    h1 - h6
+    h1{
+        font-size:2em;
+        font-weight: bold;
+        -webkit-margin-before: 0.67em;
+        -webkit-margin-after: 0.67em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        //有上下margin
+    }
+    接下来依次递减
+    h4 {
+        display: block;
+        margin-top: 1.33em;   //top
+        margin-bottom: 1.33em;    //bottom
+        font-weight: bold;
+        h4比较特殊 font-size:1em; 建议多用
+    }
+
+    ul{
+        list-style-type: disc;
+        margin-top:1em;
+        margin-bottom:1em;
+        padding-left:40px;
+    }
+
+    buttom{
+        margin:2px;
+        padding: 2px 6px 3px;
+        border: 2px outset buttonface;
+        box-sizing: border-box;
+    }
+
+    input{
+        margin:2px;
+        padding: 1px;
+        border: 2px inset;
+    }
+
+    th,td{
+        border-spacing: 2px;
+        padding:1px;
+        border-color: gray;
+    }
+
+    hr{
+        display: block;
+        margin-top:0.5em
+        margin-bottom:0.5em;
+        border-style: inset;
+        border-width: 1px;
+    }
+
+    img{
+        display: inline;
+    }
+    dl {
+        display: block;
+        margin-top:1em;
+        margin-bottom:1em;
+    }
+    dd {
+        -webkit-margin-start: 40px;
+    }
+    pre{
+        font-family: monospace;
+        white-space: pre;
+        margin: 1em 0px;
+    }
+    select{
+        border: 1px solid rgb(166, 166, 166);
+        margin:2px;
+    }
+    input, textarea, select, button {
+        margin:2px;
+    }
+    textarea{
+        border: 1px solid;
+        background-color: white;
+        margin:2px;
+        padding:2px;
+    }
+    /* ============================================================
+     样式重置
+     ============================================================ */
+    https://github.com/necolas/normalize.css
+    body,p,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,form,fieldset,legend,input,select,textarea,button,th,td,blockquote,address,pre{margin:0;padding:0;}
+    h1,h2,h3,h4,h5,h6,input,textarea,select,button,label{font-size:100%;vertical-align:middle;}
+    ul,dl,ol{list-style:none;}
+    img,fieldset{border:none;}
+    img{display:inline-block;overflow:hidden;vertical-align:top;}
+    em,address{font-style:normal;}
+    sup,sub{vertical-align:baseline;}
+    table{border-collapse:collapse;border-spacing:0;}
+    q:before{content:"";}
+    q:after{content:"";}
+    button{cursor:pointer;}
+    textarea{word-wrap:break-word;resize:none;}
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'test1',
+            html:$('#test1').html(),
+            demoPage:'demo/demo-reset.html'
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

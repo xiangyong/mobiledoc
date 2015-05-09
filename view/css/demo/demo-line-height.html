@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+
+<style>
+	p{
+		margin:0;
+	}
+	.bk{
+		width      :300px;
+		height     :300px;
+
+		margin     :50px 0;
+		border     :1px dashed black;
+		text-align :center;
+	}
+	.test1{font-size:20px; line-height:0; border:1px solid #cccccc; background:#eeeeee;}
+	.test2{font-size:0; line-height:20px; border:1px solid #cccccc; background:#eeeeee;}
+
+	#div1{  width:600px; height:200px; background:#0e0;font-size:14px; line-height:1.5;  }
+	#div2{ width:600px; background:#e00;font-size:26px; }
+
+	#div3{  width:600px; height:200px; background:#0e0;font-size:14px; line-height:150%;}
+	#div4{ width:600px; background:#e00;font-size:26px; }
+</style>
+
+<div class="test1" style="margin:50px 0 50px;">测试</div>
+<div class="test2">测试</div>
+
+<div id="div1">
+	<div id="div2">勤能补拙，积累从菜鸟到大神的必要条件</div>
+</div>
+<hr />
+<div id="div3">
+	<div id="div4">勤能补拙，积累从菜鸟到大神的必要条件</div>
+</div>
+
+<div class="bk" style="line-height:300px">
+	设置line-height
+</div>
+
+<div class="bk" style="height:auto;padding:20px;">
+	<p>高度不固定用padding:</p>
+</div>
+
+<div class="bk" style="line-height:300px">
+	<span style="display: inline-block;font-size:14px;line-height:1.4em">
+	多行的内部定义font-size:14px;
+	<br />
+	然后line-height:1.4
+		<br />
+	;因为line-height会继承父亲
+	</span>
+</div>
+
+
+</body>
+</html>

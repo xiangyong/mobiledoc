@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            margin-bottom:10px;
+        }
+        .b{
+            border:1px solid red;
+            width: 200px;
+        }
+    </style>
+    <script type="text/css" id="test">
+    div{
+        margin-bottom:10px;
+    }
+    .b{
+        border:1px solid red;
+        width: 200px;
+    }
+    </script>
+</head>
+<body>
+<div class="b">
+    如果是中文在一行不会超出什么的如果是中文在一行不会超出什么的
+</div>
+<div class="b">
+    justalonglonglonglonglonglonglonglonglonglongword
+</div>
+<div class="b">
+    aaaaaaaa如果是一个单词会超出包含中文的情况aaaaaaaaaaaaaaaaaaaaa
+</div>
+
+<div class="b">
+    aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaa
+</div>
+<div class="b">
+    aaaaaaaaa  aaaaaaaaaaaaaaaaaaaaaaa
+    显示不完一个单词的长度，就跳到下一行了
+</div>
+
+<div class="b">
+    中文中文中文 aaaaaaaaaaaa aaaaaaaa aaaaaaaaa aaaaaa
+</div>
+<div class="b" style="word-wrap: break-word;">
+    this is a long aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaword word-wrap: break-word;
+    bbb
+</div>
+<div class="b" style="word-break: break-all;">
+    this is a long aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    word-break: break-all;
+</div>
+<div class="b" style="word-break: break-word;">
+    this is a long aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    break-word;
+</div>
+<div class="b" style="
+text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;" title="
+    3个属性aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa">
+    3个属性aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+</div>
+<div class="b" style="white-space:pre">
+    aaaaaaaaa
+aaaaa
+    aaaaaaaaaaaa
+aaaaaaaaaaaaaa
+    white-space:pre
+</div>
+
+<div id="aaa" class="b" style="white-space:pre">
+    aaaaaaaaa
+aaaaa
+    aaaaaaaaaaaa
+    aaaaaaaaaaaaaa
+</div>
+<script>
+    document.querySelector('#aaa').innerHTML = document.querySelector('#test').innerHTML;
+</script>
+<div class="b" style="word-spacing:100px;">
+    a aaaaa
+a a
+    aaaaaaaaaaaa
+    aaaaaaaaaaaaaa
+    word-spacing:100px;
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=uutf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title>IMG尺寸-效率测试</title>
+    <style>
+        html {overflow: hidden}
+        #pic {position: absolute}
+    </style>
+</head>
+
+<body>
+<img id="pic" width="600" height="410" src="http://www.guao.hk/wp-content/uploads/2010/06/google-chrome.jpg" />
+<script>
+    var sty = document.getElementById("pic").style;
+
+    document.onmousemove = function(e)
+    {
+        e = e || event;
+        sty.left = e.clientX + "px";
+        sty.top = e.clientY + "px";
+    }
+//    把height="400"改成401
+</script>
+</body>
+</html>

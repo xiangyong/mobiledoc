@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/html" id='test1'>
+    fastclick可以使用一下。 在移动浏览器上面click会延时300ms， http://js250.com/home/?p=217
+    Chrome 32+ on Android with width=device-width in the viewport meta tag doesn't have a 300ms delay,
+    https://github.com/ftlabs/fastclick
+
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name: 'fastclick',
+            html: $('#test1').html(),
+        },
+
+
+    ]);
+
+</script>
+
+</body>
+</html>

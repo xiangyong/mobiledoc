@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+
+
+<script type="text/javascript" id='test1'>
+
+    /*
+    电脑文件目录如何归档：
+
+    工作
+        -工作文档
+        -项目一
+        -项目二
+
+    项目
+        -项目一
+        -项目二
+    pdf(电子书)
+
+    电影
+
+    照片
+
+    生活文档
+
+
+
+
+
+
+    */
+
+
+
+    //系统工具
+
+    /*
+     alfred                  快捷启动
+     totalTerminal           terminal
+     totalFinder             finder
+     outlook for mac         mail
+     cleanmymac2             清理mac
+
+     github nico             搭建博客
+     paintbrush Corel Painter X3 for Mac              画图
+     Synergy                  sharing one mouse and keyboard between multiple computers
+
+     Octopress
+     LICEcap http://www.cockos.com/licecap/     屏幕录制 gif
+
+    microsoft office for mac
+    parallels desktop
+    欧路词典
+
+
+android开发：
+	 http://www.eoeandroid.com/
+	 http://www.apkbus.com/
+	 http://www.jikexueyuan.com/course/58.html/?hmsr=eoe_js_secret
+
+	 ifun box 可以查看iphone里面的文件啥的
+     */
+</script>
+
+
+<script type="text/javascript" id='test2'>
+
+    //开发工具
+    /*
+     cornerstone            图形化svn
+     IntelliJ idea webStorm phpStorm
+     coda2                  sftp/ftp
+     charles                代理映射，相当于fiddler
+     xampp
+     gas mask               改host
+     dropbox
+     chrome extension 在线生成二维码url
+
+     genymotion             移动端模拟器simulator需要VirtualBox
+     weinre
+
+     屏幕取色软件 Sip for Mac
+
+	 UML: OmniGraffle Pro
+
+	 xscope for mac 辅助设计，屏幕测量
+
+	 android file transfer
+	 root大师下载到手机安装
+
+    mind node 思维图工具
+
+	 caffeine 可以让电脑不休眠
+     Balsamiq Mockups  用来画交互图
+
+     Cornerstone(图形化) for Mac  svn版本控制
+
+     浏览器相关：
+     chrome
+     safari
+     opera
+
+     */
+</script>
+
+
+<script type="text/javascript" id='test3'>
+
+    //常用命令
+    /*
+
+     ### 显示git分支  ~/.bash_profile
+     parse_git_branch () {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/'
+     }
+
+     BLACK="\[\033[0;38m\]"
+     RED="\[\033[0;31m\]"
+     RED_BOLD="\[\033[01;31m\]"
+     BLUE="\[\033[01;34m\]"
+     GREEN="\[\033[0;32m\]"
+
+     export PS1="$BLACK[ \u@$RED\h $GREEN\w$RED_BOLD\$(parse_git_branch)$BLACK ]"
+
+     #aliases
+     alias cd..="cd .."
+     alias l="ls"
+     alias ll="ls -l"
+
+
+     ls -al 名称
+     ls -t 时间 ls -tr
+     ls -X 扩展名
+
+     brew install tree
+     tree -L 2; tree -L 3
+     svn log -l 4
+     svn up, svn co, svn ci -m 'xx'
+     svn diff --summarize -c 566[version code]
+
+
+     */
+</script>
+
+<script>
+    Demo.writeExample([
+        {
+            name: '系统工具',
+            html: $('#test1').html(),
+        },
+        {
+            name: '开发工具',
+            html: $('#test2').html(),
+        },
+        {
+            name: '常用命令',
+            html: $('#test3').html()
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

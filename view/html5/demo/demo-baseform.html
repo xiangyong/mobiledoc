@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<style>
+    input {
+        display: block;
+    }
+
+    /*user agent stylesheet datalist {*/
+        /*display: none;*/
+    /*}*/
+</style>
+<form>
+    <input type="text" placeholder="placeholder"/>
+
+    <input type="text" placeholder="required" required aria-required="true"/>
+    <!--wai-aria技术-->
+    <input type="text" readonly  value="readonly"/>
+    <input type="text" disabled value="disabled" />
+
+    <input type="text" autofocus placeholder="autofocus"/>
+
+    <input type="text" autocomplete="on" placeholder="autocomplete" list="namelist"/>
+
+
+    <!--以下的智能打开相应键盘-->
+
+    <input type="email" placeholder="email" />
+    <input type="number" placeholder="number" />
+    <!--自动校验为数字，chrome下有自动上下箭头-->
+
+    <input type="url" placeholder="url" />
+    <!--自动校验-->
+
+    <input type="tel" placeholder="tel" />
+    <!--没有自动校验-->
+
+    <input type="search" placeholder="search" />
+    <!--右边有x重置文本-->
+
+    <input type="pattern" placeholder="pattern" pattern="\d{8}" />
+    <!-- pattern="\d{8}" -->
+
+    <input type="color" placeholder="color" />
+    <!--document.querySelector('[type=color]').value-->
+
+    <input type="date" placeholder="date" />
+    <input type="month" placeholder="month" />
+    <input type="week" placeholder="week" />
+    <input type="time" placeholder="time" />
+    <input type="datetime" placeholder="datetime" />
+    <input type="date-local" placeholder="date-local" />
+
+
+    <input type="range" placeholder="range" />
+
+    <input type="submit" value="submit" />
+
+    <select>
+        <option>aaa</option>
+        <option>bbb</option>
+        <option>ccc</option>
+    </select>
+</form>
+
+<datalist id="namelist">
+<select>
+    <option value="aaa"></option>
+    <option value="bbb"></option>
+    <option value="abc"></option>
+</select>
+</datalist>
+
+
+<table class="dataintable" border="1px" cellpadding="0" cellspacing="0" style="margin-top:30px">
+    <tbody>
+    <tr>
+        <th style="width:25%;">Input type</th>
+        <th style="width:15%;">IE</th>
+        <th style="width:15%;">Firefox</th>
+        <th style="width:15%;">Opera</th>
+        <th style="width:15%;">Chrome</th>
+        <th style="width:15%;">Safari</th>
+    </tr>
+
+    <tr>
+        <td>email</td>
+        <td><span class="marked">No</span></td>
+        <td><span>4.0</span></td>
+        <td>9.0</td>
+        <td><span>10.0</span></td>
+        <td><span class="marked">No</span></td>
+    </tr>
+
+    <tr>
+        <td>url</td>
+        <td><span class="marked">No</span></td>
+        <td><span>4.0</span></td>
+        <td>9.0</td>
+        <td><span>10.0</span></td>
+        <td><span class="marked">No</span></td>
+    </tr>
+
+    <tr>
+        <td>number</td>
+        <td><span class="marked">No</span></td>
+        <td><span class="marked">No</span></td>
+        <td>9.0</td>
+        <td><span>7.0</span></td>
+        <td><span class="marked">No</span></td>
+    </tr>
+
+    <tr>
+        <td>range</td>
+        <td><span class="marked">No</span></td>
+        <td><span class="marked">No</span></td>
+        <td>9.0</td>
+        <td>4.0</td>
+        <td>4.0</td>
+    </tr>
+
+    <tr>
+        <td>Date pickers</td>
+        <td><span class="marked">No</span></td>
+        <td><span class="marked">No</span></td>
+        <td>9.0</td>
+        <td><span>10.0</span></td>
+        <td><span class="marked">No</span></td>
+    </tr>
+
+    <tr>
+        <td>search</td>
+        <td><span class="marked">No</span></td>
+        <td><span>4.0</span></td>
+        <td><span>11.0</span></td>
+        <td><span>10.0</span></td>
+        <td><span class="marked">No</span></td>
+    </tr>
+
+    <tr>
+        <td>color</td>
+        <td><span class="marked">No</span></td>
+        <td><span class="marked">No</span></td>
+        <td><span>11.0</span></td>
+        <td><span class="marked">No</span></td>
+        <td><span class="marked">No</span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

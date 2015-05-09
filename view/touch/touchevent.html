@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+    http://www.html5rocks.com/zh/mobile/touch/
+    http://stackoverflow.com/questions/7056026/variation-of-e-touches-e-targettouches-and-e-changedtouches
+
+    要记住的一点是，event.touches 是与屏幕接触的所有手指的数组，而不仅仅是位于目标 DOM 元素上的那些。
+    您可能会发现，改用 event.targetTouches 或 event.changedTouches 要更实用一些。
+
+
+    touches：当前位于屏幕上的所有手指动作的列表。
+    targetTouches：位于当前 DOM 元素上的手指动作的列表。
+    changedTouches：涉及当前事件的手指动作的列表。例如，在一个 touchend 事件中，这将是移开手指。
+
+</script>
+<script>
+
+    Demo.writeExample([
+        {
+            name:'基本touch demo',
+            html:$('#test1').html(),
+            demoPage:'demo-touchbase.html'
+        },
+        {
+            name:'touches,target',
+            demoPage:'demo-touches.html'
+        },
+        {
+            name:'gesture',
+            demoPage:'demo-gesturestart.html'
+        },
+        {
+            name:'devicemotion',
+            demoPage:'demo-devicemotion.html'
+        },
+        {
+            name:'deviceorientation',
+            demoPage:'demo-deviceorientation.html'
+        },{
+            name:'demo-orientationchange',
+            demoPage:'demo-orientationchange.htm'
+        },
+    ]);
+
+</script>
+
+</body>
+</html>

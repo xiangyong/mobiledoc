@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.js"></script>
+    <style>
+        .block{
+            position: relative;
+            width:100px;
+            height:100px;
+            background-color: grey;
+        }
+
+        .d1{
+            position: relative;
+
+            -webkit-animation-name:myfirst;
+            -webkit-animation-duration:500ms;
+            -webkit-animation-timing-function:ease;
+            /*-webkit-animation-delay:2s;*/
+            -webkit-animation-iteration-count:infinite;
+            -webkit-animation-direction:alternate;
+            -webkit-animation-play-state:running;
+        }
+
+        @-webkit-keyframes myfirst{
+            from{
+                left:0px;
+            }
+            to{
+                left:500px;
+            }
+        }
+
+        .d2{
+            position: relative;
+            background-color: blue;
+            -webkit-animation-name:myfirst2;
+            -webkit-animation-duration:500ms;
+            -webkit-animation-timing-function:ease;
+            /*-webkit-animation-delay:2s;*/
+            -webkit-animation-iteration-count:infinite;
+            -webkit-animation-direction:alternate;
+            -webkit-animation-play-state:running;
+        }
+
+        @-webkit-keyframes myfirst2{
+            from{
+                /*-webkit-transform: translateX(0);*/
+                -webkit-transform: translate3d(0,0,0);
+            }
+            to{
+                /*-webkit-transform: translateX(500px);*/
+                -webkit-transform: translate3d(500px,0,0);
+            }
+
+        }
+
+
+    </style>
+</head>
+<body style="position: relative">
+<p>上面两个是left改变，后面两个是transform:translateX(100px)</p>
+
+
+<div style="height: 500px;width:100%;border:1px dashed red">
+
+    <div class="block d1" >
+    </div>
+
+    <div class="block d1" >
+    </div>
+
+    <div class="block d2" >
+    </div>
+
+    <div class="block d2" >
+    </div>
+
+
+    <div id="dd" class="block" >
+    </div>
+</div>
+
+
+<div><button onclick="run();">run</button></div>
+<script>
+    function run(){
+        $('#dd').animate({
+            left:500
+        }).animate({
+            left:0
+        }).animate({
+            left:500
+        });
+    }
+</script>
+</body>
+</html>

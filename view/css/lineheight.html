@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+	有单位（包括百分比）与无单位之间的区别
+	有单位时，子元素继承了父元素计算得出的行距；
+	无单位时继承了系数，子元素会分别计算各自行距（推荐使用）。
+
+	1  当line-height:xxx %时：
+	body{ font-size:14px; line-height:150%;  }
+	h1{ font-size:26px; }
+	实际结果就是：
+	body{ line-height:21px; /* 14px*150%=21px */ }
+	h1{ line-height:21px; } /* 继承父元素计算出来的line-height ,21px */
+
+	2  当line-height:x.x 时：
+	body{ font-size:14px; line-height:1.5;  }
+	h1{ font-size:26px; }
+	实际结果就是：
+	body{ line-height:21px; /* 14px*1.5=21px */ }
+	h1{ line-height:39px; /* 26px*1.5=39px */ }
+
+
+
+	dl, dt, dd三个标签浏览器默认margin值多少？是否有标签默认文字粗体？
+	line-height:150%和line-height:1.5的区别是？
+	float为何会让外部容器高度塌陷？这是bug？
+	vertical-align的表现为何在IE7, IE8, IE9下表现不尽相同？其中的渲染机制是？
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'line-height',
+            demoPage:'demo/demo-line-height.html'
+        },
+		{
+			name:'float',
+			demoPage:'demo/demo-float.html'
+		},
+		{
+			name:'margin',
+			demoPage:'demo/demo-margin.html'
+		}
+    ]);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+    iphone:
+
+    status bar: 20px;
+    navigation bar 或者 (safari没有收起来的时候的顶部)64px;
+    safari往下拉收起来的时候顶部：40px;
+
+    safari弹出键盘:260px;
+    弹出键盘: 216px;
+
+    底下的：
+    tab bar:49px;
+    toolbar:44px;
+
+    一个按钮的高度： 43px;
+    按钮左边的图标距离最左边的距离：15px；
+    图标的宽度：30px;
+    按钮文字距离左边的图标的距离:15px;
+
+    右边的箭头宽度：9px；
+    右边的箭头高度：13px;
+    箭头距离最右边的距离：15px;
+
+    上下两个按钮组的距离为：35px;
+    iphone头上方的banner“设置”：45px；
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'test1',
+            html:$('#test1').html(),
+            demoPage:'demo1.html'
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

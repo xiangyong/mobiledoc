@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/html" id='test1'>
+
+    //uemprod/app/web/home/src/main/resource/MERGE-INF/merge-smvc-scheme-pull.xml
+
+    /*
+    StringUtil (toolkit-common-lang-1.1.0.jar)
+    StringEscapeUtil (toolkit-common-lang-1.1.0.jar)
+    OperationContextHolder (alipay-common-lang-2.0.9.jar)
+    SystemUtil (toolkit-common-lang-1.1.0.jar)
+    ArrayUtils (commons-lang-2.4.jar)
+    DateUtil (alipay-common-lang-2.0.9.jar)
+    MathTool
+    */
+
+    使用方式
+    // 获取 OperationContext
+    $OperationContextHolder.getOperationContext()
+    // 获取 OperationPrincipal
+    $OperationContext.principal
+    // 获取 OperationRoleEnum
+    $constantTool.OperationRoleEnum
+    // 判断授权
+    $operationContext.ifGranted($!constantTool.OperationRoleEnum.ROLE_SIGN_CUSTOMER)
+
+
+    <?xml version="1.0" encoding="GBK"?>
+
+    <beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:sofa="http://img.alipay.net/dtd/schema/service" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:webflow="http://www.springframework.org/schema/webflow-config"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://img.alipay.net/dtd/schema/service http://img.alipay.net/dtd/schema/service/sofa-service.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+                    http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd"
+                            default-autowire="byName">
+        <!-- push到velocity里的工具 -->
+            <bean id="bean2VeclocityContextTool"
+    class="com.alipay.sofa.web.mvc.ui.velocity.pull.AlipayBean2VeclocityContextTool">
+        <!-- 需要输出到velocity context中的bean -->
+            <property name="sourceBeansMap">
+            <map merge="true">
+            <entry key="viewRender" value-ref="viewRender" />
+            <entry key="stringHelper" value-ref="stringHelper" />
+            <entry key="stringUtil" value-ref="stringUtil" />
+            <entry key="dateUtil" value-ref="dateUtil" />
+            <entry key="controlConstants" value-ref="controlConstants" />
+            <entry key="stringEscapeUtil" value-ref="stringEscapeUtil" />
+            <entry key="systemUtil" value-ref="systemUtil" />
+            <entry key="operationContext" value-ref="operationContext" />
+            <entry key="constantTool" value-ref="constantTool" />
+            <entry key="arrayUtil" value-ref="arrayUtil" />
+            <entry key="array" value-ref="array"/>
+            </map>
+    </property>
+    </bean>
+        <!-- 安全核心页面渲染宏 -->
+    <sofa:reference id="viewRender" interface="com.alipay.securitycore.common.service.view.template.render.ViewRender" />
+            <bean id="stringHelper" class="com.alipay.uemprod.web.home.common.helper.StringHelper" />
+            <bean id="stringUtil" class="com.alibaba.common.lang.StringUtil" />
+            <bean id="dateUtil" class="com.alipay.uemprod.common.util.DateUtil" />
+            <bean id="controlConstants" class="com.alipay.service.security.controls.ControlConstants" />
+            <bean id="stringEscapeUtil" class="com.alibaba.common.lang.StringEscapeUtil" />
+            <bean id="systemUtil" class="com.alibaba.common.lang.SystemUtil" />
+            <bean id="operationContext" class="com.alipay.common.lang.security.OperationContextHolder" />
+            <bean id="arrayUtil" class="org.apache.commons.lang.ArrayUtils"/>
+            <bean id="array" class="java.lang.reflect.Array"/>
+            <bean id="constantTool" class="com.alipay.sofa.web.mvc.ui.velocity.pull.ConstantTool">
+            <property name="constantClzMap">
+            <map merge="true">
+            <entry key="operationRoleEnum" value="com.alipay.common.lang.security.OperationRoleEnum" />
+            </map>
+    </property>
+    </bean>
+
+    <sofa:reference id="caprodServiceClient"
+    interface="com.alipay.uemprod.common.service.integration.securitycore.CaprodServiceClient" />
+            </beans>
+
+
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'merge-smvc-scheme-pull.xml',
+            html:$('#test1').html(),
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

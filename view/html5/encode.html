@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'gbk',
+            html:$('#test1').html(),
+            demoPage:'demo/gbk.html'
+        },
+        {
+            name:'utf8',
+            html:$('#test1').html(),
+            demoPage:'demo/utf8.html'
+        }
+    ]);
+
+</script>
+
+</body>
+</html>

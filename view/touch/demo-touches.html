@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title></title>
+    <style>
+        html,body{
+            margin:0;
+            padding: 0;
+            height:100%;
+            width:100%;
+
+        }
+        body { -webkit-user-select: none;
+            display: -webkit-box;
+            -webkit-box-orient:horizontal;
+            -webkit-box-pack:center;
+            -webkit-box-align:center;
+        }
+        #container{
+            width:320px;
+            height:160px;
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+
+<script>
+//human.hjh
+    function parseEvent(e) {
+        return  {
+            touches: e.touches,
+            targetTouches: e.targetTouches,
+            changedTouches: e.changedTouches
+        }
+    }
+    function log(tObj) {
+
+        var write = function(msg){
+            console.log(msg)
+            //can rewrite
+        }
+
+        var concatIdentifier = function(arr){
+            (arr instanceof Array) || (arr = [].slice.call(arr));
+            var resultArray = [];
+            arr.forEach(function(v){
+                resultArray.push(String(v.identifier).slice(-4));
+            });
+            return resultArray.join(',');
+        }
+
+        write('==================');
+        var identifiers;
+        identifiers = concatIdentifier(tObj.touches);
+        write('touches:' + identifiers);
+
+        identifiers = concatIdentifier(tObj.targetTouches);
+        write('targetTouches:' + identifiers);
+
+        identifiers = concatIdentifier(tObj.changedTouches);
+        write('changedTouches:' + identifiers);
+        write('==================');
+        write(' '); write(' ');
+    }
+
+    var touches, targetTouches, changedTouches,tObj;
+    var container  = document.getElementById('container');
+    container.addEventListener('touchstart', function (e) {
+        console.log('touchstart')
+        log(parseEvent(e));
+    }, false);
+
+    container.addEventListener('touchmove', function (e) {
+        console.log('touchmove')
+        log(parseEvent(e));
+    }, false);
+
+    container.addEventListener('touchend', function (e) {
+        console.log('touchend')
+        log(parseEvent(e));
+    }, false);
+
+</script>
+</body>
+</html>

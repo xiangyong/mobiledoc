@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="screen.css">
+    <link rel="stylesheet" type="text/css" media="print" href="print.css">
+
+    <style>
+        /*@media screen {*/
+            /*#d1{*/
+                /*color:red;*/
+            /*}*/
+        /*}*/
+
+        #width1000{
+            color:green;
+        }
+        /*  iphone:320*480  */
+
+        @media (max-width: 1000px){
+            #width1000{
+                color:red;
+            }
+        }
+
+        @media (min-width: 500px){
+            #width1000{
+                color:blue;
+            }
+        }
+
+        @media (min-width: 330px) and (orientation: landscape) {
+                #orientation{
+                    color:red;
+                }
+        }
+
+        @media not print{
+            #notprint{
+                color:red;
+            }
+        }
+    </style>
+
+
+</head>
+<body>
+<h1>你好 Mike</h1>
+
+<p id="screen">screen</p>
+<p id="print">print</p>
+
+
+<p id="width1000">width</p>
+
+<p id="iphone">iphone</p>
+
+<p id="orientation">orientation</p>
+
+<p id="notprint">notprint</p>
+
+</body>
+</html>

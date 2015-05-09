@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-size: 16px;
+        }
+        .a{
+            border:1px dashed green;
+            height:100px;
+            width:400px;
+            margin-bottom:10px;
+        }
+        .b{
+             border:1px dashed green;
+             height:50px;
+             line-height:16px;
+             width:400px;
+             margin-bottom:10px;
+         }
+        p{
+            margin:0;
+        }
+        .desc{
+            border:1px dashed red;
+            margin-bottom:10px;
+        }
+        .h1{
+            line-height:20px;
+            font-size:  20px;
+        }
+        b{
+            color:red;
+        }
+        .h2{
+        }
+        .h3{
+        }
+    </style>
+</head>
+<body>
+<div class="desc">
+    <p><b>行高</b>指的是文本行的基线间的距离</p>
+
+    <p>行高与字体尺寸的差称为<b>行距</b></p>
+
+    <p>一行中的每个元素都有一个<b>内容区域</b>，它是由字体尺寸决定的</p>
+
+    <p>行内元素会生成一个<b>行内框（inline box）</b>,行内框等于内容区域,而设定行高则可以增加或者减少行内框 的高度,<b>将行距的值（行高-字体尺寸）除以2，分别增加到内容区域的上下两边</b></p>
+
+    <p><b>行框（line box）</b>行框是指本行的一个虚拟的矩形框，其高度等于本行内所有元素中行高最大的值。</p>
+
+    <p>行框的高度只同本行内元素的行高有关，而和父元素的高度（height）无关。</p>
+
+    <p>以em、ex和百分比为单位的行高，其基数是元素本身的字体尺寸。</p>
+
+    <p>行高是可继承的，但是继承的是计算值,但是在不同的浏览器内显示的效果却不尽相同</p>
+
+    <p>一个没有单位的实数值作为缩放因子来统一控制行高，缩放因子是直接继承的，而不是继承计算值。</p>
+    <p>xxxx</p>
+    <p>xxxx</p>
+    <p>xxxx</p>
+    <p>xxxx</p>
+</div>
+<div class="a">
+    <span class="h1">height:100px;  中文;line-height:20px;, font-size:  20px;</span>
+</div>
+<p style="line-height:20px;border:1px solid red;font-size:16px;">(行高20px。font-size:16px)<strong style="line-height:50px;"> 行高50px。</strong><span style="line-height:30px;">行高30px。</span></p>
+<p style="line-height:20px;border:1px solid red;font-size:16px;">(行高20px。font-size:16px;line-height:20px)</p>
+<p style="font-size:20px;line-height:2em;border:1px solid red;">字高20px，行高2em。</p>
+<p style="font-size:30px;line-height:2em;border:1px solid red">字高30px，行高2em。 line-height:30x2=60px;</p>
+<p style="font-size:20px;line-height:2em;border:1px solid red">测试<span style="font-size:30px;">这里是span，继承的行高还是一样</span></p>
+
+<div class="a">
+<p>啊啊你啊你啊你啊你啊你啊你啊你啊你啊你啊你啊你啊啊你啊你啊你啊你啊你啊你啊你啊你啊你啊你啊你啊你你啊啊你啊你啊你啊你啊你啊你啊你啊你啊你啊你啊你啊你你啊啊你啊你啊你啊你啊你啊你啊你啊你啊你啊你啊你啊你你啊你你</p>
+</div>
+<div class="b">
+    <p>啊啊你啊你啊你啊你啊你啊你啊你啊你你啊你啊你啊你啊你啊你啊你啊你啊你啊<span style="font-size:30px;">呼呼</span>啊你你</p>
+</div>
+<div class="b">
+    <p>啊啊你啊你啊你啊你啊你啊你啊你啊你你啊你啊你啊你啊你啊你啊你啊你啊你啊<span style="font-size:30px;line-height:1">呼呼</span>啊你你</p>
+</div>
+<div class="b" style="line-height:50px;">
+    啊啊你啊你啊你啊你<span style="vertical-align: bottom;line-height: 16px;">妈妈</span>啊你啊你
+</div>
+</body>
+</html>

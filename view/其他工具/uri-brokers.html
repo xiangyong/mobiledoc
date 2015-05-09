@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../js/lib/config.js"></script>
+    <script>
+        g.initDemo();
+    </script>
+</head>
+<body>
+<script type="text/javascript" id='test1'>
+
+
+    //uemprod/app/web/home/src/main/resources/uri-brokers.xml
+    <?xml version="1.0" encoding="GBK"?>
+
+    <uri-config>
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： 非java server，包括Apache server和image server等。 -->
+        <!-- -->
+        <!-- 使用方法： link.getURI('path') -->
+        <!--
+                ================================================================
+            -->
+    <content-uri name="homeServer" expose="true">
+            <serverURI>${core_protocol}://${core_domainName}:${core_web_port}
+    </serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!-- 主站地址 -->
+    <content-uri name="alipayServer" expose="true">
+            <serverURI>${alipay_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： System URL。 -->
+        <!-- 统一登录中心系统地址 -->
+        <!--
+                ================================================================
+            -->
+    <content-uri name="authcenterServer" expose="true">
+            <serverURI>${authcenter_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： System URL。 -->
+        <!-- 新企业版门户系统地址 -->
+        <!--
+                ================================================================
+            -->
+    <content-uri name="enterpriseportalServer" expose="true">
+            <serverURI>${enterpriseportal_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+    <content-uri name="couriercoreServer" expose="true">
+            <serverURI>${couriercore_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!-- 账户管理中心 -->
+    <content-uri name="uemprodServer" expose="true">
+            <serverURI>${core_protocol}://${core_domainName}:${core_web_port}
+    </serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： System URL。 -->
+        <!-- 商户服务系统地址 -->
+        <!--
+                ================================================================
+            -->
+    <content-uri name="morderprodServer" expose="true">
+            <serverURI>${morderprod_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： System URL。 -->
+        <!-- 安全核心地址 -->
+        <!--
+                ================================================================
+            -->
+    <content-uri name="securityCenterServer" expose="true">
+            <serverURI>${securitycenter_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： System URL。 -->
+        <!-- 认证系统地址 -->
+        <!--
+                ================================================================
+            -->
+    <content-uri name="certifyServer" expose="true">
+            <serverURI>${certify_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： System URL。 -->
+        <!-- 个人版地址 -->
+        <!--
+                ================================================================
+            -->
+    <content-uri name="personalServer" expose="true">
+            <serverURI>${personal_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： System URL。 -->
+        <!-- 会员产品地址 -->
+        <!--
+                ================================================================
+            -->
+    <content-uri name="memberprodServer" expose="true">
+            <serverURI>${memberprod_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： System URL。 -->
+        <!-- 会员产品地址 -->
+        <!--
+                ================================================================
+            -->
+    <content-uri name="merchantprodServer" expose="true">
+            <serverURI>${merchantprod_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： System URL。 -->
+        <!-- 会员中心地址 -->
+        <!--
+                ================================================================
+            -->
+    <content-uri name="membercenterServer" expose="true">
+            <serverURI>${membercenter_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： System URL。 -->
+        <!-- 资金产品地址 -->
+        <!--
+                ================================================================
+            -->
+    <content-uri name="bizfundprodServer" expose="true">
+            <serverURI>${bizfundprod_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： System URL。 -->
+        <!-- 应用产品大全地址 -->
+        <!--
+                ================================================================
+            -->
+    <content-uri name="appstoreServer" expose="true">
+            <serverURI>${appstore_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： System URL。 -->
+        <!-- 应用产品大全地址 -->
+        <!--
+                ================================================================
+            -->
+    <content-uri name="emembercenterServer" expose="true">
+            <serverURI>${emembercenter_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+        <!--
+                ================================================================
+            -->
+    <content-uri name="emembercenterTileServer" expose="true">
+            <serverURI>${emembercenter_tile_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： System URL。 -->
+        <!-- 对账产品地址 -->
+        <!--
+                ================================================================
+            -->
+    <content-uri name="mbillexprodServer" expose="true">
+            <serverURI>${mbillexprod_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!-- 安全中心服务地址 -->
+    <content-uri name="epsecuritycenterServer" expose="true">
+            <serverURI>${epsecuritycenter_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： System URL。 -->
+        <!-- 余额宝产品地址 -->
+        <!--
+                ================================================================
+            -->
+    <content-uri name="financeprodServer" expose="true">
+            <serverURI>${financeprod_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： System URL。 -->
+        <!-- assets地址 -->
+        <!--
+                ================================================================
+            -->
+    <content-uri name="assetsServer" expose="true">
+            <serverURI>${assets_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： System URL。 -->
+        <!-- assets_url地址 -->
+        <!--
+                ================================================================
+            -->
+    <content-uri name="staticServer" expose="true">
+            <serverURI>${assets_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!-- 新图片服务器地址 -->
+    <content-uri name="apimgServer" expose="true">
+            <serverURI>${apimg_url}</serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!-- 图片服务器地址 -->
+    <content-uri name="imageServer" expose="true">
+            <serverURI>
+    ${core_protocol}://${imageServer_host}:${imageServer_port}
+    </serverURI>
+    <custom-handler
+    class="com.alipay.sofa.web.mvc.common.util.uribroker.handler.DomainReplaceHandler"
+    parameter="taobao" />
+            </content-uri>
+
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： java server。 -->
+        <!-- -->
+        <!-- 使用方法： 不能直接使用，只被其它URI继承。 -->
+        <!--
+                ================================================================
+            -->
+    <uri name="javaUserServer">
+            <serverURI>${core_protocol}://${core_domainName}:${core_web_port}
+    </serverURI>
+    </uri>
+
+        <!--
+                ================================================================
+            -->
+        <!-- Server Level： 支付宝首页 -->
+        <!-- -->
+        <!-- 使用方法： 不能直接使用，只被其它URI继承。 -->
+        <!--
+                ================================================================
+            -->
+    <uri name="alipayHomeServer">
+            <serverURI>${core_protocol}://www.${inner_domain}:${core_web_port}
+    </serverURI>
+    </uri>
+
+
+
+        <!--
+                ================================================================
+            -->
+        <!-- Component Level： Car。 -->
+        <!-- -->
+        <!-- 使用方法： link.setTarget('target.jhtml') -->
+        <!-- .addQueryData('name', 'value') -->
+        <!--
+                ================================================================
+            -->
+    <component-uri name="homeModule" expose="true" extends="homeServer">
+            <contextPath>/</contextPath>
+    <carPath></carPath>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+        <!-- 用户配置模块 -->
+    <component-uri name="userModule" expose="true" extends="homeServer">
+            <contextPath>/</contextPath>
+    <carPath>user</carPath>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+        <!-- 授权配置模块 -->
+    <component-uri name="permissionModule" expose="true"
+    extends="homeServer">
+            <contextPath>/</contextPath>
+    <carPath>permission</carPath>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+        <!-- 流程配置模块 -->
+    <component-uri name="workflowModule" expose="true"
+    extends="homeServer">
+            <contextPath>/</contextPath>
+    <carPath>workflow</carPath>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+        <!-- 认证系统的Module配置 -->
+    <component-uri name="certifyModule" expose="true"
+    extends="certifyServer">
+            <contextPath>/</contextPath>
+    <carPath>/</carPath>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+        <!-- 安全中心系统的Module配置-->
+    <component-uri name="securityModule" expose="true"
+    extends="securityCenterServer">
+            <contextPath>/</contextPath>
+    <controllerActionSuffix>.htm</controllerActionSuffix>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+        <!-- 安全中心联通密保模块 -->
+    <component-uri name="otpModule" expose="true" extends="securityModule">
+            <contextPath>/</contextPath>
+    <carPath>otp</carPath>
+    </component-uri>
+
+    <component-uri name="epsecuritycenterScModel" expose="true"
+    extends="epsecuritycenterServer">
+            <contextPath>/</contextPath>
+    <carPath>sc</carPath>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+        <!-- ememberCenter remoteTile -->
+    <component-uri name="emembercenterRemoteTile" expose="true"
+    extends="emembercenterTileServer">
+            <contextPath>/</contextPath>
+    <carPath></carPath>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+        <!-- emeberCenter console目录 -->
+    <component-uri name="consoleModule" expose="true" extends="emembercenterServer">
+            <contextPath>/</contextPath>
+    <carPath>console</carPath>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+        <!--  企业对账中心企业模块 -->
+    <component-uri name="mbillenterpriseModule" expose="true"
+    extends="mbillexprodServer">
+            <contextPath>/</contextPath>
+    <contextPath>enterprise</contextPath>
+    </component-uri>
+        <!--  企业签约中心签约模块 -->
+    <component-uri name="morderModule" expose="true"
+    extends="morderprodServer">
+            <contextPath>/</contextPath>
+    <contextPath>order</contextPath>
+    </component-uri>
+
+    <component-uri name="loginModule" expose="true" extends="authcenterServer">
+            <contextPath>/</contextPath>
+    <carPath>login</carPath>
+    </component-uri>
+
+        <!-- 个人版地址 -->
+    <component-uri name="personalUserModule" expose="true" extends="personalServer">
+            <contextPath>/</contextPath>
+    <carPath>user</carPath>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+        <!-- 门户转账展台链接 -->
+        <!-- 转账 展台 -->
+    <component-uri name="bizfundprodLink" expose="true" extends="bizfundprodServer">
+            <target>/payment/transfer/index.htm</target>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+        <!-- 更多应用 -->
+    <component-uri name="appStoreLink" expose="true" extends="appstoreServer">
+            <target>/container/web/enterpriseIndex.htm</target>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+        <!-- 门户对账展台链接 -->
+        <!-- 账务汇总 -->
+    <component-uri name="mbillAccountCollectLink" expose="true"
+    extends="mbillenterpriseModule">
+            <target>productDispatcher.htm?productCode=ENT_RECONCILE_CENTER&amp;functCode=000|101|101
+            </target>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+        <!-- 账务明细 -->
+    <component-uri name="mbillAccountTailLink" expose="true"
+    extends="mbillenterpriseModule">
+            <target>productDispatcher.htm?productCode=ENT_RECONCILE_CENTER&amp;functCode=000|101|111
+            </target>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+        <!-- 账单下载 -->
+    <component-uri name="mbillAccountDownloadLink" expose="true"
+    extends="mbillenterpriseModule">
+            <target>productDispatcher.htm?productCode=ENT_RECONCILE_CENTER&amp;functCode=000|101|121
+            </target>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+        <!-- 门户交易展台链接 -->
+        <!-- 快速下单 -->
+    <component-uri name="mbillQuickOrderLink" expose="true"
+    extends="mbillenterpriseModule">
+            <target>productDispatcher.htm?productCode=ENT_TRADE_RECORD&amp;functCode=000|201|101
+            </target>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+        <!-- 卖出交易 -->
+    <component-uri name="mbillSaleTradeLink" expose="true"
+    extends="mbillenterpriseModule">
+            <target>productDispatcher.htm?productCode=ENT_TRADE_RECORD&amp;functCode=000|201|102
+            </target>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+        <!-- 卖出退款 -->
+    <component-uri name="mbillSaleRefundLink" expose="true"
+    extends="mbillenterpriseModule">
+            <target>productDispatcher.htm?productCode=ENT_TRADE_RECORD&amp;functCode=000|201|103
+            </target>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+        <!-- 门户签约管理展台链接 -->
+        <!-- 签约管理 -->
+    <component-uri name="morderSignLink" expose="true" extends="morderModule">
+            <target>signManage.htm?channel=ent</target>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+        <!-- 我的签约产品 -->
+    <component-uri name="morderProductsLink" expose="true" extends="morderModule">
+            <target>products.htm?channel=ent</target>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+        <!-- 门户服务台展台链接 -->
+        <!-- 服务台 展台 -->
+    <component-uri name="enterpriseprotalLink" expose="true" extends="enterpriseportalServer">
+            <target>service.htm</target>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+        <!-- 发票申请 -->
+    <component-uri name="morderInvoiceApplyLink" expose="true" extends="morderModule">
+            <target>invoiceApply.htm?channel=ent</target>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+        <!-- 技术支持 -->
+    <component-uri name="morderTeachLink" expose="true" extends="morderModule">
+            <target>techService.htm?channel=ent</target>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+        <!-- 管理员首页引导页面 -->
+    <component-uri name="ememberOperatorLink" expose="true" extends="consoleModule">
+            <target>queryOperatorList.htm</target>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+        <!-- 角色管理页面 -->
+    <component-uri name="ememberRoleLink" expose="true" extends="consoleModule">
+            <target>queryRoleList.htm</target>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+        <!-- 多操作员版本升级链接 -->
+    <component-uri name="ememberUpgradeLink" expose="true" extends="consoleModule">
+            <target>/account/upgrade.htm</target>
+    </component-uri>
+
+    <component-uri name="portalErrorLink" expose="true" extends="enterpriseportalServer">
+            <target>error.htm</target>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+    <component-uri name="portalXboxErrorLink" expose="true" extends="enterpriseportalServer">
+            <target>xboxError.htm</target>
+    <convertTargetCaseAndUnderscore>false</convertTargetCaseAndUnderscore>
+    </component-uri>
+
+        <!--
+                ================================================================
+            -->
+        <!-- Link Level： 继承前述各类links。 -->
+        <!-- -->
+        <!-- 使用方法： link -->
+        <!--
+                ================================================================
+            -->
+    <component-uri name="assignUkeyLink" expose="true"
+    extends="epsecuritycenterScModel">
+            <target>assignProduct.htm</target>
+    </component-uri>
+
+    <component-uri name="ukeyActiveLink" expose="true"
+    extends="epsecuritycenterScModel">
+            <target>preUkeyActive.htm</target>
+    </component-uri>
+
+    <component-uri name="changeLoginPwdLink" expose="true"
+    extends="userModule">
+            <target>/account/changeLoginPassword.htm</target>
+    </component-uri>
+
+    <component-uri name="changePayPwdLink" expose="true"
+    extends="userModule">
+            <target>/account/changePayPassword.htm</target>
+    </component-uri>
+
+        <!-- MVC框架中需要引用的链接定义 -->
+    <component-uri name="loginCallbackUrl" expose="true"
+    extends="homeModule">
+            <target>index.htm</target>
+    </component-uri>
+
+    <component-uri name="optionLink" expose="true" extends="homeModule">
+            <target>option.htm</target>
+    </component-uri>
+
+    <component-uri name="userDenyAccessLink" expose="true"
+    extends="homeModule">
+            <target>login.htm</target>
+    </component-uri>
+
+    <component-uri name="myAlipayLink" expose="true" extends="enterpriseportalServer">
+            <target>index.htm</target>
+    </component-uri>
+
+    <component-uri name="operatorIndexLink" expose="true"
+    extends="userModule">
+            <target>operatorIndex.htm</target>
+    </component-uri>
+
+    <component-uri name="adminIndexLink" expose="true"
+    extends="userModule">
+            <target>adminIndex.htm</target>
+    </component-uri>
+
+    <component-uri name="userLoginPageLink" expose="true"
+    extends="loginModule">
+            <target>index.htm</target>
+    </component-uri>
+        <!-- end -->
+
+    <component-uri name="errorLink" expose="true" extends="homeModule">
+            <target>error.htm</target>
+    </component-uri>
+
+    <component-uri name="logoutLink" expose="true" extends="homeModule">
+            <target>logout.htm</target>
+    </component-uri>
+
+        <!-- 登录页面 -->
+    <component-uri name="loginLink" expose="true" extends="authcenterServer">
+            <contextPath>/login</contextPath>
+    <target>index.htm</target>
+    </component-uri>
+
+    <component-uri name="xboxLoginPageLink" expose="true" extends="authcenterServer">
+            <contextPath>/login</contextPath>
+    <target>subway.htm</target>
+    </component-uri>
+
+    <component-uri name="miniLoginLink" expose="true"
+    extends="enterpriseportalServer">
+            <contextPath>/login</contextPath>
+    <target>miniLogin.htm</target>
+    </component-uri>
+
+        <!-- 支付宝首页  -->
+    <component-uri name="alipayHomeLink" expose="true"
+    extends="alipayHomeServer">
+            <contextPath>/</contextPath>
+    <carPath>/</carPath>
+    <target>index.htm</target>
+    </component-uri>
+
+        <!-- 商户服务补充商户信息页面  -->
+    <component-uri name="morderprodModifyMerchantLink"
+    expose="true" extends="morderprodServer">
+            <contextPath>/</contextPath>
+    <carPath>order</carPath>
+    <target>modifymerchant.htm</target>
+    </component-uri>
+
+
+        <!--添加关联认证子账户页面-->
+    <component-uri name="relativeChildLink" expose="true"
+    extends="certifyModule">
+            <target>relativeChild.htm</target>
+    </component-uri>
+
+        <!-- 申请管理页面 -->
+    <component-uri name="myApplyLink" expose="true"
+    extends="workflowModule">
+            <carPath>task</carPath>
+    <target>myApplyBillManager.htm</target>
+    </component-uri>
+
+        <!-- 审批管理页面 -->
+    <component-uri name="myApprovalLink" expose="true" extends="workflowModule">
+            <carPath>task</carPath>
+    <target>myApprovalManager.htm</target>
+    </component-uri>
+
+        <!-- 申请详细页面 -->
+    <component-uri name="myApplyDetailLink" expose="true"
+    extends="workflowModule">
+            <contextPath>/</contextPath>
+    <carPath>task</carPath>
+    <target>myApplyDetail.htm</target>
+    </component-uri>
+
+
+        <!-- 跳转dialog的页面  -->
+    <component-uri name="fundAccountAuthOperatorLink" expose="true" extends="permissionModule">
+            <contextPath>/</contextPath>
+    <target>fundAccountAuthOperatorDialog.htm</target>
+    </component-uri>
+
+    <component-uri name="operatorAuthFundAccountLink" expose="true" extends="permissionModule">
+            <contextPath>/</contextPath>
+    <target>operatorAuthFundAccountDialog.htm</target>
+    </component-uri>
+
+    <component-uri name="operatorUnAuthFundAccountLink" expose="true" extends="permissionModule">
+            <contextPath>/</contextPath>
+    <target>operatorUnAuthFundAccountDialog.htm</target>
+    </component-uri>
+
+    <component-uri name="productFunctionAuthOperatorLink" expose="true" extends="permissionModule">
+            <contextPath>/</contextPath>
+    <target>productFunctionAuthOperatorDialog.htm</target>
+    </component-uri>
+
+    <component-uri name="productFunctionAuthRoleLink" expose="true" extends="permissionModule">
+            <contextPath>/</contextPath>
+    <target>productFunctionAuthRoleDialog.htm</target>
+    </component-uri>
+
+    <component-uri name="productFunctionUnAuthOperatorLink" expose="true" extends="permissionModule">
+            <contextPath>/</contextPath>
+    <target>productFunctionUnAuthOperatorDialog.htm</target>
+    </component-uri>
+
+    <component-uri name="productFunctionUnAuthRoleLink" expose="true" extends="permissionModule">
+            <contextPath>/</contextPath>
+    <target>productFunctionUnAuthRoleDialog.htm</target>
+    </component-uri>
+
+    <component-uri name="approvalProcessModifyLink" expose="true" extends="workflowModule">
+            <contextPath>/</contextPath>
+    <target>approvalProcessModify.htm</target>
+    </component-uri>
+
+    <component-uri name="approvalProcessRemoveLink" expose="true" extends="workflowModule">
+            <contextPath>/</contextPath>
+    <target>approvalProcessRemove.htm</target>
+    </component-uri>
+
+    <component-uri name="showApplyOrderLink" expose="true" extends="workflowModule">
+            <contextPath>/</contextPath>
+    <target>showApplyOrderDialogue.htm</target>
+    </component-uri>
+
+    <component-uri name="retreatMyApplyOrderLink" expose="true" extends="workflowModule">
+            <contextPath>/</contextPath>
+    <target>retreatMyApplyOrderDetail.htm</target>
+    </component-uri>
+
+    <component-uri name="showApprovalOrderLink" expose="true" extends="workflowModule">
+            <contextPath>/</contextPath>
+    <target>showApprovalOrderDialogue.htm</target>
+    </component-uri>
+
+    <component-uri name="doApprovalOrderLink" expose="true" extends="workflowModule">
+            <contextPath>/</contextPath>
+    <target>doApprovalOrderDetail.htm</target>
+    </component-uri>
+
+    <component-uri name="approvalProcessIndexLink" expose="true" extends="workflowModule">
+            <contextPath>/</contextPath>
+    <target>approvalProcessIndex.htm</target>
+    </component-uri>
+
+    </uri-config>
+
+
+</script>
+
+
+<script>
+    Demo.writeExample([
+        {
+            name:'test1',
+            html:$('#test1').html(),
+            demoPage:'demo1.html'
+        }
+    ]);
+
+</script>
+
+</body>
+</html>
